@@ -3,13 +3,13 @@ import { BackendServer } from '@/servers/BackendServer';
 
 interface UserInfo {
     id: string,
-    tgHandle: string,
-    referrerID: string,
-    parentReferrerID: string,
-    affiliateAmount: number,
-    subAffiliateAmount: number,
-    createdAt: string,
-    updateAt: string,
+    tghandle: string,
+    referrerid: string,
+    parentreferrerid: string,
+    affiliateamount: number,
+    subaffiliateamount: number,
+    createdat: string,
+    updateat: string,
     score: number,
 }
 
