@@ -42,8 +42,17 @@ export const Home = () => {
                     } else {
                         setJoinStatus(2)
                     }
+                } else {
+                    const taskID = setInterval(async () => {
+                        if (initData?.user?.id) {
+                            const result = await tgBot.isJoinedGroup(initData?.user?.id.toString());
+                            if (result) {
+                                setJoinStatus(2);
+                                clearInterval(taskID);
+                            }
+                        }
+                    }, 5000);
                 }
-
                 setIsLoading(false);
             }
         }
