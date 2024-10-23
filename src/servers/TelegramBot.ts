@@ -6,7 +6,7 @@ export class TelegramBot {
 
     constructor() {
         this.baseURL = "https://api.telegram.org/";
-        this.token = process.env.BOT_TOKEN ?? '';
+        this.token = '8025157456:AAFMoRJDoonK7CycFKMDDEds6W_eBL4-7Zk';
     }
 
     async getPFPURL(chat_id: string): Promise<{title: string, desc: string, pfpURL: string}> {
@@ -37,7 +37,6 @@ export class TelegramBot {
     async isJoinedGroup(chat_id: string) {
 
         try {
-            console.log(this.token)
             await axios.get(`${this.baseURL}bot${this.token}/getChat?chat_id=${chat_id}`);
             // console.log(chatResult.data.result)
             return true;
