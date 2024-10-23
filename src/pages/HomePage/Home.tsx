@@ -22,7 +22,7 @@ export const Home = () => {
     const userInfo = useSelector(selectUserInfo);
     const newReferral = queryParameters.get("referral");
     const referralLink = newReferral ? "?referral=" + newReferral : '';
-
+    
     // const [testLog, setTestLog] = useState<any>("");
 
     const [openModal, setOpenModal] = useState(false);
@@ -55,7 +55,7 @@ export const Home = () => {
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NavLink to="/leaders">
             <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
-                Join and earn the 500 TON Rewards! {newReferral}
+                Join and earn the 500 TON Rewards! {initData?.startParam}
             </div>
         </NavLink>
         <NeonText>
