@@ -1,0 +1,68 @@
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import { BackendServer } from '@/servers/BackendServer';
+
+interface UserInfo {
+    id: string,
+    tghandle: string,
+    referrerid: string,
+    parentreferrerid: string,
+    affiliateamount: number,
+    subaffiliateamount: number,
+    createdat: string,
+    updateat: string,
+    score: number,
+}
+
+const initialState = {
+  rankingInfo: [] as UserInfo[],
+  userRank: "100+",
+  status: false,
+  error: ''
+};
+
+export const userInfoSlice = createSlice({
+  name: 'ranking',
+  initialState,
+  reducers: {
+    clearRankingInfo: (state) => {
+      state.rankingInfo = [] as UserInfo[];
+    }
+  },
+
+  extraReducers(builder) {
+    builder
+      .addCase(fetchRankingInfo.fulfilled, (state, action) => {
+        state.status = true;
+        state.rankingInfo = action.payload.userInfo;
+        state.userRank = action.payload.ranking < 0 ? "100+": action.payload.ranking.toString();
+      })
+      .addCase(fetchRankingInfo.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.toString();
+      })
+  }
+})
+
+export const fetchRankingInfo = createAsyncThunk('user/fetchRankingInfo', async (tgID: string) => {
+    const backendServer = new BackendServer();
+    const userInfo = await backendServer.getAllUsers();
+
+    let ranking = -1;
+    userInfo.find((x: any, index: number) => {
+      if (x.id.toString() === tgID) {
+        ranking = index + 1
+        return true
+      }
+    })
+    
+    return {
+      ranking: ranking,
+      userInfo
+    };
+});
+
+export const { clearRankingInfo } = userInfoSlice.actions
+export const selectRankingInfo = (state: any) => state.ranking
+export const selectUserRanking = (state: any) => state.ranking.userRank
+// export const selectWalletsInfoList = (state) => state.account.walletsInfo.list
+export default userInfoSlice.reducer

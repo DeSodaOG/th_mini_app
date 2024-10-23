@@ -1,0 +1,47 @@
+import axios from "axios";
+
+export class TelegramBot {
+    baseURL: string;
+    token: string;
+
+    constructor() {
+        this.baseURL = "https://api.telegram.org/";
+        this.token = "7274997254:AAGrjAUKFUNBF210zcI-x06ieFGcor0kfe8";
+    }
+
+    async getPFPURL(chat_id: string): Promise<{title: string, desc: string, pfpURL: string}> {
+        let result = {
+            title: '',
+            desc: '',
+            pfpURL: ''
+        };
+        
+        try {
+            const chatResult = await axios.get(`${this.baseURL}bot${this.token}/getChat?chat_id=${chat_id}`);
+            // console.log(chatResult.data.result)
+            const file_id = chatResult.data.result.photo.big_file_id
+            const pfpFileLink = await axios.get(`${this.baseURL}bot${this.token}/getFile?file_id=${file_id}`);   
+            const pfpURL = 'https://api.telegram.org/file/bot7274997254:AAGrjAUKFUNBF210zcI-x06ieFGcor0kfe8/' + pfpFileLink.data.result.file_path;
+            result = {
+                title: chatResult.data.result.title,
+                desc: chatResult.data.result.description,
+                pfpURL: pfpURL
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+        return result;
+    }
+
+    async isJoinedGroup(chat_id: string) {
+
+        try {
+            await axios.get(`${this.baseURL}bot${this.token}/getChat?chat_id=${chat_id}`);
+            // console.log(chatResult.data.result)
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+}

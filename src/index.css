@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  /* background: var(--tg-theme-secondary-bg-color, white); */
+  background: #000;
+  padding: 0;
+  margin: 0;
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
