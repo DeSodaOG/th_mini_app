@@ -46,7 +46,7 @@ export const userInfoSlice = createSlice({
 export const fetchRankingInfo = createAsyncThunk('user/fetchRankingInfo', async (tgID: string) => {
     const backendServer = new BackendServer();
     const userInfo = await backendServer.getAllUsers();
-
+    console.log(userInfo)
     let ranking = -1;
     userInfo.find((x: any, index: number) => {
       if (x.id.toString() === tgID) {

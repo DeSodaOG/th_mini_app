@@ -1,3 +1,4 @@
+import { defaultChatID } from "@/utils/constant";
 import axios from "axios";
 
 export class TelegramBot {
@@ -34,12 +35,16 @@ export class TelegramBot {
         return result;
     }
 
-    async isJoinedGroup(chat_id: string) {
+    async isJoinedGroup(user_id: string) {
 
         try {
-            await axios.get(`${this.baseURL}bot${this.token}/getChat?chat_id=${chat_id}`);
+            const result = await axios.get(`${this.baseURL}bot${this.token}/getChatMember?chat_id=${defaultChatID}&user_id=${user_id}`);
             // console.log(chatResult.data.result)
-            return true;
+            if (result.data.result.status == "member") {
+                return true;
+            } else {
+                return false;
+            }
         } catch (error) {
             return false;
         }
