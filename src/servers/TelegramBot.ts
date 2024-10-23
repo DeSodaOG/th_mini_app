@@ -6,7 +6,7 @@ export class TelegramBot {
 
     constructor() {
         this.baseURL = "https://api.telegram.org/";
-        this.token = "7274997254:AAGrjAUKFUNBF210zcI-x06ieFGcor0kfe8";
+        this.token = process.env.BOT_TOKEN ?? '';
     }
 
     async getPFPURL(chat_id: string): Promise<{title: string, desc: string, pfpURL: string}> {
@@ -21,7 +21,7 @@ export class TelegramBot {
             // console.log(chatResult.data.result)
             const file_id = chatResult.data.result.photo.big_file_id
             const pfpFileLink = await axios.get(`${this.baseURL}bot${this.token}/getFile?file_id=${file_id}`);   
-            const pfpURL = 'https://api.telegram.org/file/bot7274997254:AAGrjAUKFUNBF210zcI-x06ieFGcor0kfe8/' + pfpFileLink.data.result.file_path;
+            const pfpURL = `https://api.telegram.org/file/bot${this.token}/` + pfpFileLink.data.result.file_path;
             result = {
                 title: chatResult.data.result.title,
                 desc: chatResult.data.result.description,

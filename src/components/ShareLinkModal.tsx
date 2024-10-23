@@ -10,7 +10,8 @@ interface Val {
 }
 
 export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): ReactNode => {
-  const shareLink = `https://t.me/share/url?url=https://t.me/tqweqeetris_bot/testapp?startapp=referral=${tgID}&text=This%20is%20a%20test%20%F0%9F%98%88link%20`;
+  
+  const shareLink = `https://t.me/share/url?url=https://t.me/TeleHunterBot/thapp?appstart=referral=${tgID}&text=This%20is%20a%20test%20%F0%9F%98%88link%20`;
   //bg-gradient-to-r from-purple-950 to-pink-950
   return <div>
     

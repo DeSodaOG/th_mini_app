@@ -49,13 +49,13 @@ export const Home = () => {
         }
 
         init();
-    }, [client, initData]);
+    }, [client, initData, joinStatus]);
 
     return userInfo.status && !isLoading ? <div className='flex flex-col w-full justify-center text-lg'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NavLink to="/leaders">
             <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
-                Join and earn the 500 TON Rewards!
+                Join and earn the 500 TON Rewards! {newReferral}
             </div>
         </NavLink>
         <NeonText>
