@@ -37,6 +37,7 @@ export class TelegramBot {
     async isJoinedGroup(chat_id: string) {
 
         try {
+            console.log(this.token)
             await axios.get(`${this.baseURL}bot${this.token}/getChat?chat_id=${chat_id}`);
             // console.log(chatResult.data.result)
             return true;
