@@ -6,14 +6,13 @@ import { CoolText } from "@/components/CoolText";
 import { NeonText } from "@/components/NeonText";
 import { useTonClient } from "@/hooks/useTonClient";
 import { useInitData } from '@telegram-apps/sdk-react';
-
-import './home.css';
 import { TelegramBot } from "@/servers/TelegramBot";
 import { Loading } from "@/components/Loading";
 import { selectUserInfo } from "@/slices/userInfoSlice";
 import { useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
 import { defaultReferral } from "@/utils/constant";
+import './home.css';
 
 export const Home = () => {
     const client = useTonClient();
@@ -22,7 +21,7 @@ export const Home = () => {
     const userInfo = useSelector(selectUserInfo);
     const newReferral = queryParameters.get("referral");
     const referralLink = newReferral ? "?referral=" + newReferral : '';
-    
+
     // const [testLog, setTestLog] = useState<any>("");
 
     const [openModal, setOpenModal] = useState(false);
@@ -40,7 +39,17 @@ export const Home = () => {
                     if (userInfo.id !== '') {
                         setJoinStatus(3);
                     } else {
-                        setJoinStatus(2)
+                        const taskID1 = setInterval(async () => {
+                            const result = await backendServer.createNewUser(
+                                initData?.user?.id.toString() ?? '',
+                                initData?.user?.username ?? '',
+                                newReferral ?? defaultReferral
+                            );
+                            if (result) {
+                                setJoinStatus(3);
+                                clearInterval(taskID1);
+                            }
+                        }, 5000);
                     }
                 } else {
                     const taskID = setInterval(async () => {
@@ -114,27 +123,15 @@ export const Home = () => {
             </div>
         </div>
         {
-            joinStatus === 1 ? <div className='flex justify-between p-5 text-xl w-full'>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" href="https://t.me/+pa0l-kBHkRcwZGFl">Join The Yielded Group And Create Your Affiliates system</Button>
-            </div> : joinStatus === 2 ? <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={async () => {
-                const backendServer = new BackendServer();
-
-                const result = await backendServer.createNewUser(
-                    initData?.user?.id.toString() ?? '',
-                    initData?.user?.username ?? '',
-                    newReferral ?? defaultReferral
-                );
-                if (result) {
-                    setJoinStatus(3);
-                }
-
-            }}>Claim The Init Rewards</Button> : <div className='flex justify-between p-5 text-xl w-full'>
+            joinStatus === 3 ? <div className='flex justify-between p-5 text-xl w-full'>
                 <NavLink to={"/dashboard" + referralLink} className="w-1/2 mr-2">
                     <Button gradientDuoTone="purpleToPink" className="items-center w-full">
                         Check Details
                     </Button>
                 </NavLink>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2" onClick={() => setOpenModal(true)}>Invite More</Button>
+            </div> : <div className='flex justify-between p-5 text-xl w-full'>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" href="https://t.me/+pa0l-kBHkRcwZGFl">Join The Yielded Group And Create Your Affiliates system</Button>
             </div>
         }
 

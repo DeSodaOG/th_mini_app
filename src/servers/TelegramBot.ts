@@ -7,7 +7,7 @@ export class TelegramBot {
 
     constructor() {
         this.baseURL = "https://api.telegram.org/";
-        this.token = '8025157456:AAFMoRJDoonK7CycFKMDDEds6W_eBL4-7Zk';
+        this.token = import.meta.env.VITE_BOT_TOKEN;
     }
 
     async getPFPURL(chat_id: string): Promise<{title: string, desc: string, pfpURL: string}> {

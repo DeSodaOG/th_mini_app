@@ -19,7 +19,6 @@ const initialState = {
     error: '',
     id: '',
     tgHandle: '',
-    pfpURL: '',
     referrerID: '',
     parentReferrerID: '',
     affiliateAmount: 0,
@@ -38,7 +37,6 @@ export const userInfoSlice = createSlice({
       state.userInfo.status = false;
       state.userInfo.id = '';
       state.userInfo.tgHandle = '';
-      state.userInfo.pfpURL = '';
       state.userInfo.referrerID = '';
       state.userInfo.parentReferrerID = '';
       state.userInfo.affiliateAmount = 0;

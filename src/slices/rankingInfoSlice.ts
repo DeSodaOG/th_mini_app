@@ -11,6 +11,7 @@ interface UserInfo {
     createdat: string,
     updateat: string,
     score: number,
+    ranking: number,
 }
 
 const initialState = {
@@ -46,17 +47,26 @@ export const userInfoSlice = createSlice({
 export const fetchRankingInfo = createAsyncThunk('user/fetchRankingInfo', async (tgID: string) => {
     const backendServer = new BackendServer();
     const userInfo = await backendServer.getAllUsers();
-    console.log(userInfo)
-    let ranking = -1;
-    userInfo.find((x: any, index: number) => {
+
+    let lastRanking = 0;
+    let lastScore = 0;
+    let userRanking = -1;
+
+    userInfo.map((x: any) => {
+      if (lastScore !== x.score) {
+        lastRanking += 1;
+      }
+
+      lastScore = x.score
+      x.ranking = lastRanking;
+
       if (x.id.toString() === tgID) {
-        ranking = index + 1
-        return true
+        userRanking = lastRanking
       }
     })
-    
+
     return {
-      ranking: ranking,
+      ranking: userRanking,
       userInfo
     };
 });

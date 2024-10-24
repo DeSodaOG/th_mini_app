@@ -69,12 +69,12 @@ export const Leaders = () => {
                             </thead>
                             <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                                 {
-                                    rankingInfo.rankingInfo.map((x: any, index: number) => {
-                                            const color = index === 0 ? "green" : index > 0 && index < 4 ? "yellow" : "blue";
+                                    rankingInfo.rankingInfo.map((x: any) => {
+                                            const color = x.ranking === 1 ? "green" : x.ranking > 1 && x.ranking < 3 ? "yellow" : "blue";
 
                                             return <tr key={x.id}>
                                                 <td className={`px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-${color}-500 dark:text-${color}-500`}>{
-                                                    "No. " + (index + 1).toString()
+                                                    "No. " + x.ranking.toString()
                                                 }</td>
                                                 <td className={`px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-${color}-500 dark:text-${color}-500`}>{x.tghandle}</td>
                                                 <td className={`px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-${color}-500 dark:text-${color}-500`}>{x.score}</td>
