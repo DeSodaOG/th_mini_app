@@ -31,6 +31,7 @@ export const Home = () => {
         const tgBot = new TelegramBot();
         const backendServer = new BackendServer()
         async function init() {
+            setIsLoading(true);
             console.log("Referral ID: ", initData?.startParam);
             if (initData?.startParam) {
                 const result = await tgBot.isJoinedGroup(initData?.startParam);
@@ -72,13 +73,14 @@ export const Home = () => {
                         }
                     }, 5000);
                 }
+                dispatch(fetchUserInfo(initData?.user?.id.toString()));
+                dispatch(fetchRankingInfo(initData?.user?.id.toString() ?? ''));
                 setIsLoading(false);
             }
         }
 
         init();
-        dispatch(fetchUserInfo(userInfo?.user?.id.toString()));
-        dispatch(fetchRankingInfo(userInfo?.user?.id.toString() ?? ''));
+        
     }, [client, initData, joinStatus]);
 
     return userInfo.status && !isLoading ? <div className='flex flex-col w-full justify-center text-lg'>
