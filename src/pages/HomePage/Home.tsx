@@ -8,13 +8,15 @@ import { useTonClient } from "@/hooks/useTonClient";
 import { useInitData } from '@telegram-apps/sdk-react';
 import { TelegramBot } from "@/servers/TelegramBot";
 import { Loading } from "@/components/Loading";
-import { selectUserInfo } from "@/slices/userInfoSlice";
-import { useSelector } from "react-redux";
+import { fetchUserInfo, selectUserInfo } from "@/slices/userInfoSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
 import { defaultInviteLink, defaultReferral } from "@/utils/constant";
 import './home.css';
+import { fetchRankingInfo } from "@/slices/rankingInfoSlice";
 
 export const Home = () => {
+    const dispatch: any = useDispatch();
     const client = useTonClient();
     const initData = useInitData();
     const userInfo = useSelector(selectUserInfo);
@@ -75,6 +77,8 @@ export const Home = () => {
         }
 
         init();
+        dispatch(fetchUserInfo(userInfo?.user?.id.toString()));
+        dispatch(fetchRankingInfo(userInfo?.user?.id.toString() ?? ''));
     }, [client, initData, joinStatus]);
 
     return userInfo.status && !isLoading ? <div className='flex flex-col w-full justify-center text-lg'>
