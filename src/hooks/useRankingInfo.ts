@@ -1,11 +1,13 @@
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import { useInitData } from '@telegram-apps/sdk-react';
 import { fetchRankingInfo } from "@/slices/rankingInfoSlice";
+import { selectRefreshNum } from "@/slices/globalInfoSlice";
 
 export default function useFetchRankingInfo() {
   const dispatch: any = useDispatch();
   const userInfo = useInitData();
+  const refreshNum = useSelector(selectRefreshNum);
 
   useEffect(() => {
     const refreshInfo = () => {
@@ -20,5 +22,5 @@ export default function useFetchRankingInfo() {
       clearInterval(timer);
       console.log("clear useFetchRankingInfo")
     };
-  }, [userInfo]);
+  }, [userInfo, refreshNum]);
 }

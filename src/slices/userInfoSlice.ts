@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import { BackendServer } from '@/servers/BackendServer';
+import { TelegramBot } from '@/servers/TelegramBot';
 
 interface UserInfo {
     id: string,
@@ -17,6 +18,7 @@ const initialState = {
   userInfo: {
     status: false,
     error: '',
+    isInGroup: false,
     id: '',
     tgHandle: '',
     referrerID: '',
@@ -35,6 +37,7 @@ export const userInfoSlice = createSlice({
   reducers: {
     clearAccountInfo: (state) => {
       state.userInfo.status = false;
+      state.userInfo.isInGroup = false;
       state.userInfo.id = '';
       state.userInfo.tgHandle = '';
       state.userInfo.referrerID = '';
@@ -52,6 +55,7 @@ export const userInfoSlice = createSlice({
 
         state.status = true;
         state.userInfo.status = true;
+        state.userInfo.isInGroup = action.payload.isInGroup;
         state.userInfo.id = action.payload.id;
         state.userInfo.tgHandle = action.payload.tgHandle;
         state.userInfo.referrerID = action.payload.referrerID;
@@ -69,11 +73,15 @@ export const userInfoSlice = createSlice({
 })
 
 export const fetchUserInfo = createAsyncThunk('user/fetchUserInfo', async (tgID: string) => {
+    const tgBot = new TelegramBot();
+    const isInGroup = await tgBot.isJoinedGroup(tgID);
+
     const backendServer = new BackendServer();
     const baseInfo = await backendServer.getUserInfo(tgID);
     const affiliatesInfo = await backendServer.getUserAffiliatesInfo(tgID);
     
     return {
+      isInGroup: isInGroup,
       id: baseInfo.id,
       tgHandle: baseInfo.tghandle,
       referrerID: baseInfo.referrerid,
