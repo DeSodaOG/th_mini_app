@@ -90,11 +90,12 @@ export const Dashboard = () => {
                                     {
                                         userInfo.affiliates.map((x: any) =>
                                             <tr key={x.id}>
-                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-100 dark:text-neutral-200">{x.tgHandle}</td>
-                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateAmount}</td>
-                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateAmount * 40000 + 20000}</td>
+                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-gray-100 dark:text-neutral-200">{x.tghandle}</td>
+                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount}</td>
+                                                <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount} * 40000</td>
                                                 <td className="px-2 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs">Push Him!</Button>                                                </td>
+                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs" href={`https://t.me/${x.tghandle}`}>Push Him!</Button>                                                
+                                                </td>
                                             </tr>
                                         )
                                     }
