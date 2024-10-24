@@ -1,5 +1,5 @@
 import { Button } from "flowbite-react";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ShareLinkModal } from "@/components/ShareLinkModal";
 import { CoolText } from "@/components/CoolText";
@@ -17,11 +17,8 @@ import './home.css';
 export const Home = () => {
     const client = useTonClient();
     const initData = useInitData();
-    const [queryParameters] = useSearchParams();
     const userInfo = useSelector(selectUserInfo);
-    const newReferral = queryParameters.get("referral");
-    const referralLink = newReferral ? "?referral=" + newReferral : '';
-
+    let referralID = initData?.startParam ?? defaultReferral;
     // const [testLog, setTestLog] = useState<any>("");
 
     const [openModal, setOpenModal] = useState(false);
@@ -30,11 +27,22 @@ export const Home = () => {
 
     useEffect(() => {
         const tgBot = new TelegramBot();
+        const backendServer = new BackendServer()
         async function init() {
+            console.log("Referral ID: ", initData?.startParam);
+            if (initData?.startParam) {
+                const result = await tgBot.isJoinedGroup(initData?.startParam);
+                const referralInfo = await backendServer.getUserInfo(initData?.startParam);
+                if (!result || referralInfo.id == '') {
+                    console.log("Not valid referral.")
+                    referralID = defaultReferral;
+                }
+            }
+
             if (client && initData?.user?.id) {
                 const result = await tgBot.isJoinedGroup(initData?.user?.id.toString());
                 if (result) {
-                    const backendServer = new BackendServer()
+                    
                     const userInfo = await backendServer.getUserInfo(initData?.user?.id.toString());
                     if (userInfo.id !== '') {
                         setJoinStatus(3);
@@ -43,7 +51,7 @@ export const Home = () => {
                             const result = await backendServer.createNewUser(
                                 initData?.user?.id.toString() ?? '',
                                 initData?.user?.username ?? '',
-                                newReferral ?? defaultReferral
+                                referralID
                             );
                             if (result) {
                                 setJoinStatus(3);
@@ -73,7 +81,7 @@ export const Home = () => {
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NavLink to="/leaders">
             <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
-                Join and earn the 500 TON Rewards! {initData?.startParam}
+                Join and earn the 500 TON Rewards!
             </div>
         </NavLink>
         <NeonText>
@@ -124,7 +132,7 @@ export const Home = () => {
         </div>
         {
             joinStatus === 3 ? <div className='flex justify-between p-5 text-xl w-full'>
-                <NavLink to={"/dashboard" + referralLink} className="w-1/2 mr-2">
+                <NavLink to="/dashboard" className="w-1/2 mr-2">
                     <Button gradientDuoTone="purpleToPink" className="items-center w-full">
                         Check Details
                     </Button>
