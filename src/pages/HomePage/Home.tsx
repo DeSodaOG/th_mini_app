@@ -11,7 +11,7 @@ import { Loading } from "@/components/Loading";
 import { selectUserInfo } from "@/slices/userInfoSlice";
 import { useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
-import { defaultReferral } from "@/utils/constant";
+import { defaultInviteLink, defaultReferral } from "@/utils/constant";
 import './home.css';
 
 export const Home = () => {
@@ -139,7 +139,7 @@ export const Home = () => {
                 </NavLink>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2" onClick={() => setOpenModal(true)}>Invite More</Button>
             </div> : <div className='flex justify-between p-5 text-xl w-full'>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" href="https://t.me/telehunteroffical">Join The Yielded Group And Create Your Affiliates system</Button>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" href={defaultInviteLink}>Join The Yielded Group And Create Your Affiliates system</Button>
             </div>
         }
 

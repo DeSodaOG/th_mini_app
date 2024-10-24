@@ -58,14 +58,16 @@ export class BackendServer {
 
     async createNewUser(id: string, tgHandle: string, referrerID: string) {
         try {
-            await axios.post(this.baseURL + '/users/create', {
+            console.log('createNewUser: ', id, tgHandle, referrerID)
+            const result = await axios.post(this.baseURL + '/users/create', {
                 id,
                 tgHandle,
                 referrerID,
             });
-    
+            console.log(result);
             return true;
         } catch (error: any) {
+            console.log(error);
             return false;
         }
     }
