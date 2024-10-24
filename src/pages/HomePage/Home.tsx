@@ -76,7 +76,7 @@ export const Home = () => {
 
         init();
     }, [client, initData, joinStatus]);
-    console.log(userInfo)
+
     return userInfo.status && !isLoading ? <div className='flex flex-col w-full justify-center text-lg'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NavLink to="/leaders">
