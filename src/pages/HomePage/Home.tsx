@@ -21,7 +21,7 @@ export const Home = () => {
     const initData = useInitData();
     const userInfo = useSelector(selectUserInfo);
     const [openModal, setOpenModal] = useState(false);
-    
+    console.log(userInfo.id, initData?.user?.id)
     let referralID = initData?.startParam ?? defaultReferral;
     const joinStatus = userInfo.isInGroup ? ((userInfo.id === initData?.user?.id) ? 3 : 2) : 1
     
@@ -41,7 +41,7 @@ export const Home = () => {
         }
 
         init();
-    }, [client, initData]);
+    }, [client, initData, userInfo]);
 
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg'>
         <NavLink to="/leaders">
