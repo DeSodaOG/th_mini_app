@@ -21,9 +21,9 @@ export const Home = () => {
     const initData = useInitData();
     const userInfo = useSelector(selectUserInfo);
     const [openModal, setOpenModal] = useState(false);
-    console.log(userInfo.id, initData?.user?.id)
+
     let referralID = initData?.startParam ?? defaultReferral;
-    const joinStatus = userInfo.isInGroup ? ((userInfo.id === initData?.user?.id) ? 3 : 2) : 1
+    const joinStatus = userInfo.isInGroup ? ((userInfo.id === initData?.user?.id.toString()) ? 3 : 2) : 1
     
     useEffect(() => {
         const tgBot = new TelegramBot();
