@@ -115,7 +115,8 @@ export const Home = () => {
                         );
 
                         if (!result) {
-                            alert("Join The Affiliate System Failed, please refresh the mini app or contact with Official.")
+                            // alert("Join The Affiliate System Failed, please refresh the mini app or contact with Official.")
+                            dispatch(setRefreshNum());
                             return;
                         }
                     }
