@@ -29,7 +29,7 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
                 alert('Copy Success!')
               }}
             >Copy the share link</Button>
-            <Button gradientDuoTone="pinkToOrange" className="items-center my-5" onClick={() => window.open(shareLink)}>Invite More</Button>
+            <Button gradientDuoTone="pinkToOrange" className="items-center my-5" onClick={() => window.open(shareLink, '_blank')}>Invite More</Button>
           </div>
         </div>
       </Modal.Body>

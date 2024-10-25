@@ -115,7 +115,7 @@ export const Home = () => {
                 }
             }}>Claim The Init Rewards</Button> : <div className='flex justify-between p-5 text-xl w-full'>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={() => {
-                    window.open(defaultInviteLink);
+                    window.open(defaultInviteLink, '_blank');
                     setTimeout(() => dispatch(setRefreshNum()), 5000);
                 }}>Join The Yielded Group And Create Your Affiliates system</Button>
             </div>
