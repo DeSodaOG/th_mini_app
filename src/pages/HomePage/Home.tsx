@@ -107,12 +107,17 @@ export const Home = () => {
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={async () => {
                     if (!isInDB) {
                         const backendServer = new BackendServer();
-
-                        await backendServer.createNewUser(
+                        
+                        const result = await backendServer.createNewUser(
                             initData?.user?.id.toString() ?? '',
                             initData?.user?.username ?? '',
                             referralID
                         );
+
+                        if (!result) {
+                            alert("Join The Affiliate System Failed, please refresh the mini app or contact with Official.")
+                            return;
+                        }
                     }
                     
                     const utils = initUtils();
