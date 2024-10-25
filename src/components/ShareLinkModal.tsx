@@ -2,6 +2,7 @@
 
 import { Button, Modal } from "flowbite-react";
 import { FC, ReactNode } from "react"
+import { initUtils } from '@tma.js/sdk';
 
 interface Val {
   tgID: string,
@@ -29,7 +30,12 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
                 alert('Copy Success!')
               }}
             >Copy the share link</Button>
-            <Button gradientDuoTone="pinkToOrange" className="items-center my-5" onClick={() => window.open(shareLink, 'mozillaTab')}>Invite More</Button>
+            <Button gradientDuoTone="pinkToOrange" className="items-center my-5" onClick={() => {
+              const utils = initUtils();
+              utils.openTelegramLink(
+                shareLink
+              );
+            }}>Invite More</Button>
           </div>
         </div>
       </Modal.Body>
