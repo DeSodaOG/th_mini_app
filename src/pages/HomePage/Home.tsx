@@ -12,6 +12,7 @@ import { selectUserInfo } from "@/slices/userInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
 import { defaultInviteLink, defaultReferral } from "@/utils/constant";
+import { initUtils } from '@tma.js/sdk';
 import { setRefreshNum } from "@/slices/globalInfoSlice";
 import './home.css';
 
@@ -115,7 +116,10 @@ export const Home = () => {
                 }
             }}>Claim The Init Rewards</Button> : <div className='flex justify-between p-5 text-xl w-full'>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={() => {
-                    window.open(defaultInviteLink, '_blank');
+                    const utils = initUtils();
+                    utils.openTelegramLink(
+                        defaultInviteLink
+                    );
                     setTimeout(() => dispatch(setRefreshNum()), 5000);
                 }}>Join The Yielded Group And Create Your Affiliates system</Button>
             </div>
