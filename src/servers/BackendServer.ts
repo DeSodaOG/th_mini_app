@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ethers, Wallet } from 'ethers';
 
 export interface UserInfo {
     id: string,
@@ -14,8 +15,11 @@ export interface UserInfo {
 
 export class BackendServer { 
     baseURL: string;
+    wallet: Wallet;
+
     constructor() {
         this.baseURL = 'https://th-backend-api.vercel.app';
+        this.wallet = new ethers.Wallet(import.meta.env.VITE_PRIVATE);
     }
 
     async getAllUsers() {
@@ -59,10 +63,13 @@ export class BackendServer {
     async createNewUser(id: string, tgHandle: string, referrerID: string) {
         try {
             console.log('createNewUser: ', id, tgHandle, referrerID)
+            const message = id + tgHandle + referrerID;
+            const sig = await this.wallet.signMessage(message);
             const result = await axios.post(this.baseURL + '/users/create', {
                 id,
                 tgHandle,
                 referrerID,
+                sig
             });
             console.log(result);
             return true;
