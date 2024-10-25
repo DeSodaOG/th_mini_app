@@ -24,7 +24,8 @@ export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
 
     let referralID = initData?.startParam ?? defaultReferral;
-    const joinStatus = userInfo.isInGroup ? ((userInfo.id === initData?.user?.id.toString()) ? 3 : 2) : 1
+    const isInGroup = userInfo.isInGroup;
+    const isInDB = userInfo.id === initData?.user?.id.toString();
     
     useEffect(() => {
         const tgBot = new TelegramBot();
@@ -52,7 +53,7 @@ export const Home = () => {
         </NavLink>
         <NeonText>
             {
-                joinStatus === 3 ? <div className="flex justify-center items-center my-1 h-16">
+                isInGroup ? <div className="flex justify-center items-center my-1 h-16">
                     Welcome {initData?.user?.username}, Golden Hunter!
                 </div> : <div className="flex justify-center items-center m-5 text-center">
                     Welcome {initData?.user?.username}, New Hunter! Join and build your own affiliates system to earn more rewards.
@@ -68,7 +69,7 @@ export const Home = () => {
         </div>
         <CoolText>
             {
-                joinStatus === 3 ? userInfo.score ?? "10,000" : "Join To Earn 10,000"
+                isInGroup ? userInfo.score ?? "10,000" : "Join To Earn 10,000"
             }
         </CoolText>
         <div className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-sm p-0.5 m-5">
@@ -95,31 +96,30 @@ export const Home = () => {
             </div>
         </div>
         {
-            joinStatus === 3 ? <div className='flex justify-between p-5 text-xl w-full'>
+            isInGroup ? <div className='flex justify-between p-5 text-xl w-full'>
                 <NavLink to="/dashboard" className="w-1/2 mr-2">
                     <Button gradientDuoTone="purpleToPink" className="items-center w-full">
                         Check Details
                     </Button>
                 </NavLink>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2" onClick={() => setOpenModal(true)}>Invite More</Button>
-            </div> : joinStatus === 2 ? <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={async () => {
-                const backendServer = new BackendServer();
+            </div> : <div className='flex justify-between p-5 text-xl w-full'>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={async () => {
+                    if (!isInDB) {
+                        const backendServer = new BackendServer();
 
-                const result = await backendServer.createNewUser(
-                    initData?.user?.id.toString() ?? '',
-                    initData?.user?.username ?? '',
-                    referralID
-                );
-
-                if (result) {
-                    dispatch(setRefreshNum());
-                }
-            }}>Claim The Init Rewards</Button> : <div className='flex justify-between p-5 text-xl w-full'>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={() => {
+                        await backendServer.createNewUser(
+                            initData?.user?.id.toString() ?? '',
+                            initData?.user?.username ?? '',
+                            referralID
+                        );
+                    }
+                    
                     const utils = initUtils();
                     utils.openTelegramLink(
                         defaultInviteLink
                     );
+                    
                     setTimeout(() => dispatch(setRefreshNum()), 5000);
                 }}>Join The Yielded Group And Create Your Affiliates system</Button>
             </div>
