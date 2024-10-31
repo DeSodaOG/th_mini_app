@@ -12,7 +12,7 @@ interface Val {
 
 export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): ReactNode => {
 
-  const shareLink = `https://t.me/share/url?url=https%3A%2F%2Ft.me%2FTeleHunterBot%2Fthapp%3Fstartapp%3D${tgID}&text=This%20is%20a%20test%20%F0%9F%98%88link%20`;
+  const shareLink = `https://t.me/share/url?url=https%3A%2F%2Ft.me%2FTeleHunterBot%2Fthapp%3Fstartapp%3D${tgID}&text=Farm%20%24Hunter%2C%20earn%20%24USDT%20with%20me%20and%20secure%20your%20token%20allocation%20through%20%40TeleHunterBot%21%20%0A%F0%9F%8E%81%20I%27ve%20prepared%20a%20warm%20welcome%20gift%20just%20for%20you%21%F0%9F%8E%81%20%0ABuild%20your%20Telegram%20traffic%20affiliate%20system%20and%20earn%20passive%20income%20permanently%20with%20TeleHunter.%0A`;
   //bg-gradient-to-r from-purple-950 to-pink-950
   return <div>
     

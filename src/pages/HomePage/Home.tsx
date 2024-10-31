@@ -98,11 +98,11 @@ export const Home = () => {
         {
             isInGroup ? <div className='flex justify-between p-5 text-xl w-full'>
                 <NavLink to="/dashboard" className="w-1/2 mr-2">
-                    <Button gradientDuoTone="purpleToPink" className="items-center w-full animate-bounce focus:animate-none hover:animate-none inline-flex">
+                    <Button gradientDuoTone="purpleToPink" className="items-center w-full inline-flex">
                         My Earnings
                     </Button>
                 </NavLink>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={() => setOpenModal(true)}>Invite More</Button>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 inline-flex" onClick={() => setOpenModal(true)}>Invite More</Button>
             </div> : <div className='flex justify-between p-5 text-xl w-full'>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={async () => {
                     if (isInDB) {
