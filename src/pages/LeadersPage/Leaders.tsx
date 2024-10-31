@@ -39,7 +39,7 @@ export const Leaders = () => {
         <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5 my-3">
             * No. 11 ~ 80: $35 USDT
         </div>
-        <a className="flex justify-start items-center text-sm mx-5" href="https://www.google.com">
+        <a className="flex justify-start items-center text-sm mx-5" href="https://medium.com/@telehunter/tele-hunter-carnival-king-of-invite-contest-6000-u-prize-money-to-grab-5fddea67b3ae">
             Extra giveaway campaigns, totaling $1000.
         </a>
         <div className="flex items-center my-2 p-5 w-full">
