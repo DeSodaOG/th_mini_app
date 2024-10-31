@@ -17,7 +17,8 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
   return <div>
     
     <Modal show={openModal} size="sm" onClose={() => setOpenModal(false)} popup position="center" className="bg-black" >
-      <Modal.Header className="bg-gray-800" />
+      <Modal.Header className="bg-gray-600"></Modal.Header>
+      {/* <Modal.Header className="bg-gray-800" /> */}
       <Modal.Body className="bg-gray-800">
         <div className="space-y-6 p-6 text-center">
           <p className="text-base leading-relaxed text-gray-100">

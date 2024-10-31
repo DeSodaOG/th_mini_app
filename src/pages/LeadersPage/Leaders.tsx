@@ -18,18 +18,30 @@ export const Leaders = () => {
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NeonText>
             <div className="flex justify-center items-center my-5 text-xl">
-                Tele-Hunter Championship
+                King-Of-Invite Contest: $6000 to grab
             </div>
         </NeonText>
         <div className="flex justify-start items-center text-sm mx-5">
             Detail Rules:
         </div>
-        <div className="flex justify-start items-center text-sm mx-5">
-            In order to achieve a cold launch of the product and reward early bird users, we designed a 30-day tournament event. At the end of the event, 500 TON rewards will be divided according to your score ranking.
+        <div className="flex justify-start items-center text-sm mx-5 my-3">
+            To celebrate the milestone, Tele Hunter presents, $6000 USDT prize pool to grab lasting 6 weeks starting from Nov, 11th. Zero threshold, free to participate, everyone is equal. Invite more, improve your Ranking, Higher Chance to win.
         </div>
-        <div className="flex justify-start items-center text-sm text-yellow-300 mx-5">
-            * Top 1: 100 TON
+        <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            * No. 1: $1000 USDT
         </div>
+        <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            * No. 2 ~ 3: $500 USDT
+        </div>
+        <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            * No. 4 ~ 10: $200 USDT
+        </div>
+        <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5 my-3">
+            * No. 11 ~ 80: $35 USDT
+        </div>
+        <a className="flex justify-start items-center text-sm mx-5" href="https://www.google.com">
+            Extra giveaway campaigns, totaling $1000.
+        </a>
         <div className="flex items-center my-2 p-5 w-full">
             {/* <img
                 width={120}
@@ -46,7 +58,7 @@ export const Leaders = () => {
                 </SparkleText>
                 <NeonText color="turquoise">
                     <div className='flex justify-center w-full my-1'>
-                        (Estimated Rewards: 0 TON)
+                        (You can win $1000 at most)
                     </div>
                 </NeonText>
             </div>
@@ -62,9 +74,9 @@ export const Leaders = () => {
                                 <tr className="divide-x divide-gray-200 dark:divide-neutral-700">
                                     <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Ranking</th>
                                     <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">TG-Handle</th>
-                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Score</th>
-                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Affiliates</th>
-                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Sub-Affiliates</th>
+                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">$Hunter</th>
+                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Tier-1 Affiliates</th>
+                                    <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Tier-2 Affiliates</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">

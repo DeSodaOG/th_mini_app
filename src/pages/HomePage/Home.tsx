@@ -48,35 +48,35 @@ export const Home = () => {
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg'>
         <NavLink to="/leaders">
             <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
-                Join and earn the 500 TON Rewards!
+                King-Of-Invite Contest, $6000 Prize Money!
             </div>
         </NavLink>
         <NeonText>
             {
                 isInGroup ? <div className="flex justify-center items-center my-1 h-16">
-                    Welcome {initData?.user?.username}, Golden Hunter!
+                    {initData?.user?.username}, Welcome to Hunters Union!
                 </div> : <div className="flex justify-center items-center m-5 text-center">
-                    Welcome {initData?.user?.username}, New Hunter! Join and build your own affiliates system to earn more rewards.
+                    {initData?.user?.username}, Welcome to Hunters’ Union, build affiliates’ kingdom and earn passively.
                 </div>
             }
         </NeonText>
         <div className="flex flex-col items-center justify-center mb-3">
             <div className="containerCloud h-48">
                 <div className="cloud">
-                    <h2>Hunter Score</h2>
+                    <h2>$Hunter</h2>
                 </div>
             </div>
         </div>
         <CoolText>
             {
-                isInGroup ? userInfo.score ?? "10,000" : "Join To Earn 10,000"
+                isInGroup ? new Intl.NumberFormat().format(userInfo.score) ?? "10,000" : "Join To Earn 10,000"
             }
         </CoolText>
         <div className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-sm p-0.5 m-5">
             <div className="flex flex-col h-full w-full items-center justify-center bg-gray-900 back p-3">
                 <div className='flex justify-between w-full'>
                     <div>
-                        Your Affiliates:
+                        Your Tier-1 Affiliates:
                     </div>
                     <div>
                         {userInfo.affiliateAmount} ( * 20000 Hunter Score)
@@ -84,7 +84,7 @@ export const Home = () => {
                 </div>
                 <div className='flex justify-between w-full'>
                     <NeonText color="turquoise">
-                        Your Sub-Affiliates:
+                        Your Tier-2 Affiliates:
                     </NeonText>
                     <NeonText color="turquoise">
                         {userInfo.subAffiliateAmount} ( * 40000 Hunter Score)
@@ -98,13 +98,13 @@ export const Home = () => {
         {
             isInGroup ? <div className='flex justify-between p-5 text-xl w-full'>
                 <NavLink to="/dashboard" className="w-1/2 mr-2">
-                    <Button gradientDuoTone="purpleToPink" className="items-center w-full">
-                        Check Details
+                    <Button gradientDuoTone="purpleToPink" className="items-center w-full animate-bounce focus:animate-none hover:animate-none inline-flex">
+                        My Earnings
                     </Button>
                 </NavLink>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2" onClick={() => setOpenModal(true)}>Invite More</Button>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={() => setOpenModal(true)}>Invite More</Button>
             </div> : <div className='flex justify-between p-5 text-xl w-full'>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2" onClick={async () => {
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={async () => {
                     if (isInDB) {
                         const backendServer = new BackendServer();
                         
@@ -127,10 +127,10 @@ export const Home = () => {
                     );
                     
                     setTimeout(() => dispatch(setRefreshNum()), 5000);
-                }}>Join The Yielded Group And Create Your Affiliates system</Button>
+                }}>Join Group Chat and start earning</Button>
             </div>
         }
-
+            
         <ShareLinkModal tgID={initData?.user?.id.toString() ?? ''} openModal={openModal} setOpenModal={setOpenModal} />
     </div> : <div className='flex flex-col items-center justify-center h-96'>
         <Loading />

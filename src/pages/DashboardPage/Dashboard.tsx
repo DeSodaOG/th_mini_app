@@ -18,13 +18,13 @@ export const Dashboard = () => {
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NeonText>
             <div className="flex justify-center text-center my-2 p-5 w-full">
-                Good Job! {userInfo.tgHandle}. Keep effort!
+                Well Done! {userInfo.tgHandle}. Start your own traffic business!
             </div>
         </NeonText>
         <div className="flex flex-col h-full w-full items-center justify-center p-5 text-sm">
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Total Earned Score:
+                    Total $Hunter Point:
                 </div>
                 <div>
                     {userInfo.score}
@@ -40,7 +40,7 @@ export const Dashboard = () => {
             </div>
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Your Total Affiliates:
+                    Your Total Tier-1 Affiliates:
                 </div>
                 <div>
                     {userInfo.affiliateAmount}
@@ -48,7 +48,7 @@ export const Dashboard = () => {
             </div>
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Your Total Sub-Affiliates:
+                    Your Total Tier-2 Affiliates:
                 </div>
                 <div>
                     {userInfo.subAffiliateAmount}
@@ -59,20 +59,23 @@ export const Dashboard = () => {
         <Button gradientDuoTone="purpleToPink" className="items-center mx-3" onClick={() => setOpenModal(true)}>Invite More To Earn More</Button>
 
         <div className="flex justify-center items-center my-5 text-xl">
-            Your Affiliate System Details
+            Your Affiliate Kingdom
         </div>
         <div className="flex justify-start items-center text-sm mx-5">
-            Scored Rules:
+            Affiliate Expansion Rules:
         </div>
         <div className="flex justify-start items-center text-sm mx-5">
-            1. If you have a new affiliate, you will get 10000 Hunter Score.
+            1. A direct invite is deemed as a Tier-1 affiliate, earns you 20,000 $Hunter Score.
         </div>
         <div className="flex justify-start items-center text-sm text-yellow-300 mx-5">
-            2. If you have a sub-affiliate (your affiliate’s affiliate), you will get 20000 Hunter Score. So doing your best to help your affiliates will make you earn more
+            {"2. Tier-1 Affiliate's direct invite is deemed as your Tier-2 affiliate, earns you 40,000 $Hunter Score."}
+        </div>
+        <div className="flex justify-start items-center text-sm text-yellow-300 mx-5">
+            3. Push and Help your Tier-1 Affiliates to invite more, you’ll earn more.
         </div>
         {
             userInfo.affiliates.length === 0 ? <div className="m-10 overflow-x-auto text-center text-2xl">
-                You have no affiliates, share to get more affiliates.
+                You have no Tier-1 affiliates, share to get more affiliates.
             </div> : <div className="flex flex-col mt-5">
                 <div className="m-1 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
@@ -81,7 +84,7 @@ export const Dashboard = () => {
                                 <thead>
                                     <tr className="divide-x divide-gray-200 dark:divide-neutral-700">
                                         <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">TG-Handle</th>
-                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Sub-Affiliates</th>
+                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Tier-2 Affiliates</th>
                                         <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Revenue Contribution</th>
                                         <th scope="col" className="px-2 py-3 text-end text-sm font-medium text-gray-500 uppercase dark:text-neutral-500"></th>
                                     </tr>
@@ -94,7 +97,7 @@ export const Dashboard = () => {
                                                 <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount}</td>
                                                 <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount} * 40000</td>
                                                 <td className="px-2 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs" href={`https://t.me/${x.tghandle}`}>Push Him!</Button>                                                
+                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs" href={`https://t.me/${x.tghandle}`}>Push!</Button>                                                
                                                 </td>
                                             </tr>
                                         )
