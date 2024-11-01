@@ -65,7 +65,15 @@ export const en_locationText = {
         a7: "Answer: In addition to the official $Hunter Point, you can also earn real money, $6000 $TON, participating  in the King-Of-Invite Contest. $Hunter Point will be converted into Hunter Token airdrops during the Platformization Stage, which is the core of the entire platform economic model.",
         a8: "Answer: Of course, in the MVP stage, you only need to use TeleHunter Mini App to join the official group to successfully build an affiliate system. All that is left to do is to continuously invite new affiliates and manage your system, so everything is completely free. And no other additional funds or data services are required, no risk and no cost.",
         a9: "Answer: Capture more value from the whole $Ton and Telegram Ecosystems by offering them real and authentic user traffic. By Introducing potential advertisers, such as project, TG group operators etc., as early TeleHunte users, you’re able to earn income and expand your social network as well. All Hunters can selectively participate based on the rewards paid by advertisers and grow them by organic viral promotions and invitations. Hence, TeleHunter will be further upgraded to become the most viral traffic growth platform on Telegram.",
+    },
+    share: {
+        shareText: 'Farm%20%24Hunter%2C%20earn%20%24USDT%20with%20me%20and%20secure%20your%20token%20allocation%20through%20%40TeleHunterBot%21%20%0A%F0%9F%8E%81%20I%27ve%20prepared%20a%20warm%20welcome%20gift%20just%20for%20you%21%F0%9F%8E%81%20%0ABuild%20your%20Telegram%20traffic%20affiliate%20system%20and%20earn%20passive%20income%20permanently%20with%20TeleHunter.%0A',
+        title: 'Optimize your affiliates system to earn more score',
+        copy: 'Copy the share link',
+        invite: 'Invite More',
+        success: 'Copy Success!'
     }
+
 }
 
 export const ru_locationText = {
@@ -135,5 +143,12 @@ export const ru_locationText = {
         a7: "Ответ: Помимо официальных $Hunter Point, вы также можете заработать реальные деньги, $6000 $TON, участвуя в конкурсе King-Of-Invite. $Hunter Point будут конвертированы в раздачу токенов Hunter на этапе платформеризации, который является основой всей экономической модели платформы.",
         a8: "Ответ: Конечно, на этапе MVP вам нужно всего лишь использовать приложение TeleHunter Mini, чтобы присоединиться к официальной группе и успешно создать партнерскую систему. Все, что вам остается делать, это постоянно приглашать новых партнеров и управлять вашей системой, так что все это совершенно бесплатно. И никаких других дополнительных средств или услуг по передаче данных не требуется, никакого риска и никаких затрат.",
         a9: "Ответ: Получите больше пользы от всей экосистемы $Ton и Telegram, предлагая им реальный и аутентичный пользовательский трафик. Представляя потенциальных рекламодателей, таких как операторы проекта, группы TG и т. д., в качестве первых пользователей TeleHunte, вы также можете получать доход и расширять свою социальную сеть. Все Охотники могут выборочно участвовать на основе вознаграждений, выплачиваемых рекламодателями, и увеличивать их за счет органических вирусных рекламных акций и приглашений. Следовательно, TeleHunter будет модернизирован и станет самой популярной платформой для роста вирусного трафика в Telegram.",
+    },
+    share: {
+        shareText: '%D0%A4%D0%B0%D1%80%D0%BC%D0%B8%D1%82%D0%B5%20%24Hunter%2C%20%D0%B7%D0%B0%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D0%B9%D1%82%D0%B5%20%24USDT%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5%20%D1%81%D0%BE%20%D0%BC%D0%BD%D0%BE%D0%B9%20%D0%B8%20%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D1%8C%D1%82%D0%B5%20%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%D1%85%20%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%BE%D0%B2%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%40TeleHunterBot%21%20%F0%9F%8E%81%20%D0%A1%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B0%D1%81%20%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%B8%D0%BB%20%D1%82%D0%B5%D0%BF%D0%BB%D1%8B%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D0%BE%D0%BA%21%20%F0%9F%8E%81%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%B9%D1%82%D0%B5%20%D1%81%D0%B2%D0%BE%D1%8E%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D1%81%D0%BA%D1%83%D1%8E%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%BF%D0%BE%20%D1%82%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D1%83%20%D0%B2%20Telegram%20%D0%B8%20%D0%BF%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%BD%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D1%82%D0%B5%20%D0%BF%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%85%D0%BE%D0%B4%20%D1%81%20TeleHunter.',
+        title: 'Оптимизируйте свою партнерскую систему, чтобы зарабатывать больше очков',
+        copy: 'Скопируйте ссылку «Поделиться»',
+        invite: 'Пригласить больше',
+        success: 'Копирование Успеха!'
     }
 }
