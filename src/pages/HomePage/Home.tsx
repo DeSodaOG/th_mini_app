@@ -50,13 +50,13 @@ export const Home = () => {
 
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg'>
         <NavLink to="/leaders">
-            <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
+            <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5">
                 {local.home.banner}
             </div>
         </NavLink>
         <NeonText>
             {
-                isInGroup ? <div className="flex justify-center items-center my-1 h-16">
+                isInGroup ? <div className="flex justify-center items-center my-1 h-16 text-center">
                     {initData?.user?.username}, {local.home.welcome_olduser}
                 </div> : <div className="flex justify-center items-center m-5 text-center">
                     {initData?.user?.username}, {local.home.welcome_newuser}
