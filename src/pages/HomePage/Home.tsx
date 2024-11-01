@@ -15,17 +15,20 @@ import { defaultInviteLink, defaultReferral } from "@/utils/constant";
 import { initUtils } from '@tma.js/sdk';
 import { setRefreshNum } from "@/slices/globalInfoSlice";
 import './home.css';
+import { en_locationText, ru_locationText } from "@/assets/location";
 
 export const Home = () => {
     const dispatch: any = useDispatch();
     const client = useTonClient();
     const initData = useInitData();
+    console.log(initData);
     const userInfo = useSelector(selectUserInfo);
     const [openModal, setOpenModal] = useState(false);
 
     let referralID = initData?.startParam ?? defaultReferral;
     const isInDB = userInfo.id === initData?.user?.id.toString();
     const isInGroup = userInfo.isInGroup && isInDB;
+    const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
     
     useEffect(() => {
         const tgBot = new TelegramBot();
@@ -48,15 +51,15 @@ export const Home = () => {
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg'>
         <NavLink to="/leaders">
             <div className="flex justify-center items-center h-24 bg-gradient-to-r from-purple-500 to-pink-500">
-                King-Of-Invite Contest, $6000 Prize Money!
+                {local.home.banner}
             </div>
         </NavLink>
         <NeonText>
             {
                 isInGroup ? <div className="flex justify-center items-center my-1 h-16">
-                    {initData?.user?.username}, Welcome to Hunters Union!
+                    {initData?.user?.username}, {local.home.welcome_olduser}
                 </div> : <div className="flex justify-center items-center m-5 text-center">
-                    {initData?.user?.username}, Welcome to Hunters’ Union, build affiliates’ kingdom and earn passively.
+                    {initData?.user?.username}, {local.home.welcome_newuser}
                 </div>
             }
         </NeonText>
@@ -69,25 +72,25 @@ export const Home = () => {
         </div>
         <CoolText>
             {
-                isInGroup ? new Intl.NumberFormat().format(userInfo.score) ?? "10,000" : "Join To Earn 10,000"
+                isInGroup ? new Intl.NumberFormat().format(userInfo.score) ?? "10,000" : local.home.newJoin
             }
         </CoolText>
         <div className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-sm p-0.5 m-5">
             <div className="flex flex-col h-full w-full items-center justify-center bg-gray-900 back p-3">
                 <div className='flex justify-between w-full'>
                     <div>
-                        Your Tier-1 Affiliates:
+                        {local.home.tier1}
                     </div>
                     <div>
-                        {userInfo.affiliateAmount} ( * 20000 Hunter Score)
+                        {userInfo.affiliateAmount} ( * 20000 $Hunter)
                     </div>
                 </div>
                 <div className='flex justify-between w-full'>
                     <NeonText color="turquoise">
-                        Your Tier-2 Affiliates:
+                        {local.home.tier2}
                     </NeonText>
                     <NeonText color="turquoise">
-                        {userInfo.subAffiliateAmount} ( * 40000 Hunter Score)
+                        {userInfo.subAffiliateAmount} ( * 40000 $Hunter)
                     </NeonText>
                 </div>
                 {/* <div>
@@ -99,10 +102,10 @@ export const Home = () => {
             isInGroup ? <div className='flex justify-between p-5 text-xl w-full'>
                 <NavLink to="/dashboard" className="w-1/2 mr-2">
                     <Button gradientDuoTone="purpleToPink" className="items-center w-full inline-flex">
-                        My Earnings
+                        {local.home.earn}
                     </Button>
                 </NavLink>
-                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 inline-flex" onClick={() => setOpenModal(true)}>Invite More</Button>
+                <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 inline-flex" onClick={() => setOpenModal(true)}>{local.home.invite}</Button>
             </div> : <div className='flex justify-between p-5 text-xl w-full'>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={async () => {
                     if (isInDB) {
@@ -127,10 +130,9 @@ export const Home = () => {
                     );
                     
                     setTimeout(() => dispatch(setRefreshNum()), 5000);
-                }}>Join Group Chat and start earning</Button>
+                }}>{local.home.join}</Button>
             </div>
         }
-            
         <ShareLinkModal tgID={initData?.user?.id.toString() ?? ''} openModal={openModal} setOpenModal={setOpenModal} />
     </div> : <div className='flex flex-col items-center justify-center h-96'>
         <Loading />

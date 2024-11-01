@@ -7,24 +7,26 @@ import { NeonText } from "@/components/NeonText";
 import { selectUserInfo } from "@/slices/userInfoSlice";
 import { selectUserRanking } from "@/slices/rankingInfoSlice";
 import { useInitData } from "@telegram-apps/sdk-react";
+import { en_locationText, ru_locationText } from "@/assets/location";
 
 export const Dashboard = () => {
     const initData = useInitData();
     const userInfo = useSelector(selectUserInfo);
     const userRanking = useSelector(selectUserRanking);
     const [openModal, setOpenModal] = useState(false);
+    const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NeonText>
             <div className="flex justify-center text-center my-2 p-5 w-full">
-                Well Done! {userInfo.tgHandle}. Start your own traffic business!
+                {local.dashboard.well} {userInfo.tgHandle}. {local.dashboard.start}
             </div>
         </NeonText>
         <div className="flex flex-col h-full w-full items-center justify-center p-5 text-sm">
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Total $Hunter Point:
+                    {local.dashboard.totalPoint}
                 </div>
                 <div>
                     {userInfo.score}
@@ -32,7 +34,7 @@ export const Dashboard = () => {
             </div>
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Your Score Ranking:
+                    {local.dashboard.pointRank}
                 </div>
                 <div>
                     {userRanking}
@@ -40,7 +42,7 @@ export const Dashboard = () => {
             </div>
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Your Total Tier-1 Affiliates:
+                    {local.dashboard.tier1}
                 </div>
                 <div>
                     {userInfo.affiliateAmount}
@@ -48,7 +50,7 @@ export const Dashboard = () => {
             </div>
             <div className='flex justify-between w-full my-1'>
                 <div>
-                    Your Total Tier-2 Affiliates:
+                    {local.dashboard.tier2}
                 </div>
                 <div>
                     {userInfo.subAffiliateAmount}
@@ -59,23 +61,23 @@ export const Dashboard = () => {
         <Button gradientDuoTone="purpleToPink" className="items-center mx-3" onClick={() => setOpenModal(true)}>Invite More To Earn More</Button>
 
         <div className="flex justify-center items-center my-5 text-xl">
-            Your Affiliate Kingdom
+            {local.dashboard.descTitle}
         </div>
         <div className="flex justify-start items-center text-sm mx-5">
-            Affiliate Expansion Rules:
+            {local.dashboard.rule}
         </div>
         <div className="flex justify-start items-center text-sm mx-5">
-            1. A direct invite is deemed as a Tier-1 affiliate, earns you 20,000 $Hunter Score.
+            {local.dashboard.rule1}
         </div>
         <div className="flex justify-start items-center text-sm text-yellow-300 mx-5">
-            {"2. Tier-1 Affiliate's direct invite is deemed as your Tier-2 affiliate, earns you 40,000 $Hunter Score."}
+            {local.dashboard.rule2}
         </div>
         <div className="flex justify-start items-center text-sm text-yellow-300 mx-5">
-            3. Push and Help your Tier-1 Affiliates to invite more, you’ll earn more.
+            {local.dashboard.rule3}
         </div>
         {
             userInfo.affiliates.length === 0 ? <div className="m-10 overflow-x-auto text-center text-2xl">
-                You have no Tier-1 affiliates, share to get more affiliates.
+                {local.dashboard.noAffiliate}
             </div> : <div className="flex flex-col mt-5">
                 <div className="m-1 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
@@ -83,9 +85,9 @@ export const Dashboard = () => {
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                                 <thead>
                                     <tr className="divide-x divide-gray-200 dark:divide-neutral-700">
-                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">TG-Handle</th>
-                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Tier-2 Affiliates</th>
-                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">Revenue Contribution</th>
+                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">{local.dashboard.table1}</th>
+                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">{local.dashboard.table2}</th>
+                                        <th scope="col" className="px-2 py-3 text-center text-sm font-medium text-gray-500 uppercase dark:text-neutral-500">{local.dashboard.table3}</th>
                                         <th scope="col" className="px-2 py-3 text-end text-sm font-medium text-gray-500 uppercase dark:text-neutral-500"></th>
                                     </tr>
                                 </thead>
@@ -97,7 +99,7 @@ export const Dashboard = () => {
                                                 <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount}</td>
                                                 <td className="px-2 py-4 whitespace-nowrap text-center text-sm text-gray-100 dark:text-neutral-200">{x.affiliateamount} * 40000</td>
                                                 <td className="px-2 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs" href={`https://t.me/${x.tghandle}`}>Push!</Button>                                                
+                                                    <Button gradientDuoTone="purpleToPink" className="items-center" size="xs" href={`https://t.me/${x.tghandle}`}>{local.dashboard.push}</Button>                                                
                                                 </td>
                                             </tr>
                                         )
