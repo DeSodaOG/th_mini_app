@@ -108,7 +108,8 @@ export const Home = () => {
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-1/2 ml-2 inline-flex" onClick={() => setOpenModal(true)}>{local.home.invite}</Button>
             </div> : <div className='flex justify-between p-5 text-xl w-full'>
                 <Button gradientDuoTone="pinkToOrange" className="items-center w-full m-2 animate-bounce focus:animate-none hover:animate-none inline-flex" onClick={async () => {
-                    if (isInDB) {
+
+                    if (!isInDB) {
                         const backendServer = new BackendServer();
                         
                         const result = await backendServer.createNewUser(
