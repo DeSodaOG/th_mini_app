@@ -36,7 +36,7 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
             >{local.share.copy}</Button>
             <Button gradientDuoTone="pinkToOrange" className="items-center my-5" onClick={() => {
               const utils = initUtils();
-              utils.openTelegramLink(
+              utils.openLink(
                 shareLink
               );
             }}>{local.share.invite}</Button>
