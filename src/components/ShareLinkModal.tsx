@@ -2,8 +2,7 @@
 
 import { Button, Modal } from "flowbite-react";
 import { FC, ReactNode } from "react"
-import { initUtils } from '@tma.js/sdk';
-import { useInitData } from "@telegram-apps/sdk-react";
+import { useInitData, initUtils } from "@telegram-apps/sdk-react";
 import { en_locationText, ru_locationText } from "@/assets/location";
 
 interface Val {
