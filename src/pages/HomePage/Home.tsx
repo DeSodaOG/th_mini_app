@@ -12,7 +12,7 @@ import { selectUserInfo } from "@/slices/userInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
 import { defaultInviteLink, defaultReferral } from "@/utils/constant";
-import { initUtils } from '@tma.js/sdk';
+import { initUtils } from '@telegram-apps/sdk-react';
 import { setRefreshNum } from "@/slices/globalInfoSlice";
 import './home.css';
 import { en_locationText, ru_locationText } from "@/assets/location";
