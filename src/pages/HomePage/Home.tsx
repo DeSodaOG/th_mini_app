@@ -36,11 +36,13 @@ export const Home = () => {
         async function init() {
             console.log("Referral ID: ", initData?.startParam);
             if (initData?.startParam) {
-                const result = await tgBot.isJoinedGroup(initData?.startParam);
-                const referralInfo = await backendServer.getUserInfo(initData?.startParam);
-                if (!result || referralInfo.id == '') {
-                    console.log("Not valid referral.")
-                    referralID = defaultReferral;
+                if (Number(initData?.startParam) > 1000) {
+                    const result = await tgBot.isJoinedGroup(initData?.startParam);
+                    const referralInfo = await backendServer.getUserInfo(initData?.startParam);
+                    if (!result || referralInfo.id == '') {
+                        console.log("Not valid referral.")
+                        referralID = defaultReferral;
+                    }
                 }
             }
         }
