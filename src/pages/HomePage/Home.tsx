@@ -128,7 +128,7 @@ export const Home = () => {
                     }
                     
                     const utils = initUtils();
-                    utils.openTelegramLink(
+                    utils.openLink(
                         defaultInviteLink
                     );
                     
