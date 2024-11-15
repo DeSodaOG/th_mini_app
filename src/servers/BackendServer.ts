@@ -78,4 +78,19 @@ export class BackendServer {
             return false;
         }
     }
+
+    async clickNewUser(id: string, referrerID: string) {
+        try {
+            console.log('clickNewUser: ', id, referrerID)
+            const result = await axios.post(this.baseURL + '/users/newClick', {
+                id,
+                referrerID,
+            });
+            console.log(result);
+            return true;
+        } catch (error: any) {
+            console.log(error);
+            return false;
+        }
+    }
 }

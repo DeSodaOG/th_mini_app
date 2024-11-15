@@ -27,7 +27,7 @@ import { Wiki } from '@/pages/WikiPage/Wiki';
 import useFetchUserInfo from '@/hooks/useFetchUserInfo';
 import useFetchRankingInfo from '@/hooks/useRankingInfo';
 import { useInitData } from '@telegram-apps/sdk-react';
-import { clickNewUser } from '@/utils/botUtils';
+import { BackendServer } from '@/servers/BackendServer';
 
 export const App: FC = () => {
   // const lp = useLaunchParams();
@@ -63,12 +63,12 @@ export const App: FC = () => {
   }, [navigator]);
 
   const initData = useInitData();
-  
+
   useEffect(() => {
     // declare the data fetching function
     const newClickUser = async () => {
-      const newTime = new Date();
-      await clickNewUser(initData?.user?.id.toString() ?? '0', newTime.toString(), initData?.startParam ?? '0');
+      const backendServer = new BackendServer();
+      await backendServer.clickNewUser(initData?.user?.id.toString() ?? '0', initData?.startParam ?? '0');
     }
   
     // call the function
