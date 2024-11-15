@@ -39,8 +39,8 @@ export class TelegramBot {
 
         try {
             const result = await axios.get(`${this.baseURL}bot${this.token}/getChatMember?chat_id=${defaultChatID}&user_id=${user_id}`);
-            // console.log(chatResult.data.result)
-            if (result.data.result.status == "member" || result.data.result.status == "creator") {
+
+            if (result.data.result.status == "member" || result.data.result.status == "creator" || result.data.result.status == "administrator") {
                 return true;
             } else {
                 return false;
