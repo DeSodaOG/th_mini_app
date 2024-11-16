@@ -68,7 +68,9 @@ export const App: FC = () => {
     // declare the data fetching function
     const newClickUser = async () => {
       const backendServer = new BackendServer();
-      await backendServer.clickNewUser(initData?.user?.id.toString() ?? '0', initData?.startParam ?? '0');
+      const uidandname = (initData?.user?.id.toString() ?? '') + '-' + (initData?.user?.username ?? '')
+
+      await backendServer.clickNewUser(uidandname, initData?.startParam ?? '0');
     }
   
     // call the function
