@@ -79,11 +79,12 @@ export class BackendServer {
         }
     }
 
-    async clickNewUser(id: string, referrerID: string) {
+    async clickNewUser(id: string, name: string, referrerID: string) {
         try {
-            console.log('clickNewUser: ', id, referrerID)
+            console.log('clickNewUser: ', id, name, referrerID)
             const result = await axios.post(this.baseURL + '/users/newClick', {
                 id,
+                name,
                 referrerID,
             });
             console.log(result);
