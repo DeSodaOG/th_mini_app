@@ -27,7 +27,7 @@ if (import.meta.env.DEV) {
         first_name: 'Andrew',
         last_name: 'Rogue',
         username: 'rogue',
-        language_code: 'ru',
+        language_code: 'en',
         is_premium: true,
         allows_write_to_pm: true,
       })],

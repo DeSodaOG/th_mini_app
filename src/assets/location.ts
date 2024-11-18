@@ -2,13 +2,18 @@ export const en_locationText = {
     home: {
         banner: "King-Of-Invite Contest, $6000 Prize Money!",
         welcome_olduser: "Welcome to Hunters Union!",
-        welcome_newuser: "Welcome to Hunters’ Union, build affiliates’ kingdom and earn passively.",
-        newJoin: "Join To Earn 10,000",
+        welcome_newuser: "Welcome to Hunters’ Union!",
+        newJoin: "10,000 available",
         tier1: "Your Tier-1 Affiliates:",
         tier2: "Your Tier-2 Affiliates:",
         earn: "My Earnings",
+        stepInfo: "You must complete 2 steps to get rewards:",
+        step1: "Join the official chat group",
+        step1Complete: "You are already in the group",
+        step2: "Check And Claim Your Airdrop",
+        alert: "You are not in the offical group, please complete the step 1 to join the group first. If you are already in the group, please refresh the mini app.",
         invite: "Invite More",
-        join: "Join Group Chat and start earning"
+        join: "Join Group Chat and get the airdrop"
     },
     leader: {
         title: "King-Of-Invite Contest: $6000 USDT to grab",
@@ -80,11 +85,16 @@ export const ru_locationText = {
     home: {
         banner: "Конкурс «Король приглашений», призовой фонд $6000!",
         welcome_olduser: "Добро пожаловать в Союз Охотников!",
-        welcome_newuser: "Добро пожаловать в Союз Охотников, создавайте королевство партнеров и зарабатывайте пассивно.",
+        welcome_newuser: "Добро пожаловать в Союз Охотников!",
         newJoin: "Присоединяйтесь, чтобы заработать 10 000",
         tier1: "Ваши партнеры первого уровня:",
         tier2: "Ваши партнеры второго уровня:",
         earn: "Мой заработок",
+        stepInfo: "Для получения награды необходимо выполнить 2 шага:",
+        step1: "Присоединяйтесь к официальному чату",
+        step1Complete: "Вы уже в группе",
+        step2: "Проверьте и получите свой Airdrop",
+        alert: "Вы не состоите в официальной группе. Сначала выполните шаг 1, чтобы присоединиться к группе. Если вы уже в группе, обновите мини-приложение.",
         invite: "Пригласить больше",
         join: "Присоединяйтесь к групповому чату и начните зарабатывать"
     },

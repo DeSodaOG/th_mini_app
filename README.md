@@ -15,6 +15,11 @@ VALUES ('1', '-1', '-1', '2024-11-11 14:00:00', '2024-11-11 14:00:00', 1);
 DELETE FROM tele_hunter
 WHERE id = '1360198129';
 
+SELECT
+   *
+FROM
+   tele_hunter;
+
 Q1. What is Tele-Hunter?
 
 Answer: TeleHunter’s is dedicated to becoming the most viral user traffic growth platform on Telegram. By improving users’ bargaining power against advertisers in the online traffic business, users can earn more profits. TeleHunter will help each user build an exclusive TG traffic affiliate system, launching your first traffic monetization business with one click, and earn your first income on TG. At the same time, the unique mechanism design allows The most influential KOL helps you make money and help your business grow exponentially.
