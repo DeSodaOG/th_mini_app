@@ -29,7 +29,8 @@ export const Home = () => {
     let referralID = initData?.startParam ?? defaultReferral;
     const isInDB = userInfo.id === initData?.user?.id.toString();
     const isInGroup = userInfo.isInGroup;
-    // const isInGroup = false;
+    // const isInGroup = true;
+    // const isInDB = true;
     const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
     
     useEffect(() => {
@@ -54,7 +55,7 @@ export const Home = () => {
 
     return userInfo.status ? <div className='flex flex-col w-full justify-center text-base'>
         <NavLink to="/leaders">
-            <div className="flex justify-center items-center h-10 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5">
+            <div className="flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5">
                 {local.home.banner}
             </div>
         </NavLink>
@@ -80,7 +81,7 @@ export const Home = () => {
             }
         </CoolText>
         {
-            (isInGroup && isInDB) ?? <div className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-sm p-0.5 m-5">
+            (isInGroup && isInDB) ? <div className="rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-sm p-0.5 m-5">
                 <div className="flex flex-col h-full w-full items-center justify-center bg-gray-900 back p-3">
                     <div className='flex justify-between w-full'>
                         <div>
@@ -102,7 +103,8 @@ export const Home = () => {
                         {testLog}
                     </div> */}
                 </div>
-            </div>
+            </div> : 
+            <div />
         }
         
         {
