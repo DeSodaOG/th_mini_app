@@ -6,9 +6,9 @@
 
 @layer base {
   @font-face {
-    font-family: Protest Strike;
+    font-family: Tilt Neon;
     font-weight: 400;
-    src: url(/assets/Protest_Strike/ProtestStrike-Regular.ttf);
+    src: url(/assets/TiltNeon-Regular-VariableFont_XROT\,YROT.ttf);
   }
 }
 
@@ -17,7 +17,7 @@ body {
   background: #000;
   padding: 0;
   margin: 0;
-  font-family: "Protest Strike", sans-serif;
+  font-family: "Tilt Neon", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
