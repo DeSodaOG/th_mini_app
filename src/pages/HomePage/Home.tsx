@@ -123,11 +123,11 @@ export const Home = () => {
                                 </div>
                             </button>
                         </NavLink>
-                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8" onClick={() => setOpenModal(true)} >
-                            <div>
+                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8 " onClick={() => setOpenModal(true)} >
+                            <div className="z-20">
                                 {local.home.invite}
                             </div>
-                            <div>
+                            <div className="z-20">
                                 <TbHandClick />
                             </div>
                         </button>
