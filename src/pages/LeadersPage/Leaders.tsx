@@ -69,7 +69,7 @@ export const Leaders = () => {
                 </NeonText>
             </div>
         </div>
-        <button className="glow-on-hover flex justify-between w-5/6 items-center px-8 mx-3" onClick={() => setOpenModal(true)} >
+        <button className="glow-on-hover flex justify-between w-5/6 items-center px-8 mx-3 text-base" onClick={() => setOpenModal(true)} >
             <div>
                 {local.leader.invite}
             </div>
@@ -77,7 +77,7 @@ export const Leaders = () => {
                 <TbHandClick />
             </div>
         </button>
-        <div className="flex flex-col mt-5">
+        <div className="flex flex-col mt-5 w-full">
             <div className="m-1 overflow-x-auto">
                 <div className="p-1.5 min-w-full inline-block align-middle">
                     <div className="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">

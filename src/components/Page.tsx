@@ -42,6 +42,7 @@ export const Page = () => {
     return <AppRoot
         appearance={'dark'}
         platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+        className='w-screen'
     >
         <TopNav />
         {

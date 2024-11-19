@@ -91,7 +91,7 @@ export const Dashboard = () => {
         {
             userInfo.affiliates.length === 0 ? <div className="m-10 overflow-x-auto text-center text-2xl">
                 {local.dashboard.noAffiliate}
-            </div> : <div className="flex flex-col mt-5">
+            </div> : <div className="flex flex-col mt-5 w-full">
                 <div className="m-1 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
                         <div className="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">
