@@ -13,7 +13,7 @@ INSERT INTO tele_hunter(id, referrerid, parentreferrerid, createdat, updatedat, 
 VALUES ('1', '-1', '-1', '2024-11-11 14:00:00', '2024-11-11 14:00:00', 1);
 
 DELETE FROM tele_hunter
-WHERE id = '1360198129';
+WHERE id = '1645327630';
 
 SELECT
    *

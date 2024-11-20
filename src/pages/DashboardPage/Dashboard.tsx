@@ -8,8 +8,8 @@ import { selectUserInfo } from "@/slices/userInfoSlice";
 import { selectUserRanking } from "@/slices/rankingInfoSlice";
 import { useInitData } from "@telegram-apps/sdk-react";
 import { en_locationText, ru_locationText } from "@/assets/location";
-import affiliates from "@/assets/images/affiliates.png";
 import { TbHandClick } from "react-icons/tb";
+import affiliates from "@/assets/images/affiliates.png";
 
 export const Dashboard = () => {
     const initData = useInitData();
