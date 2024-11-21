@@ -25,10 +25,10 @@ export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
 
     let referralID = initData?.startParam ?? defaultReferral;
-    // const isInDB = userInfo.id === initData?.user?.id.toString();
-    // const isInGroup = userInfo.isInGroup;
-    const isInGroup = true;
-    const isInDB = true;
+    const isInDB = userInfo.id === initData?.user?.id.toString();
+    const isInGroup = userInfo.isInGroup;
+    // const isInGroup = true;
+    // const isInDB = true;
     const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
     useEffect(() => {
