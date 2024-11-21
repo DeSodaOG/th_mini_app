@@ -6,7 +6,6 @@ import { NeonText } from "@/components/NeonText";
 import { useTonClient } from "@/hooks/useTonClient";
 import { useInitData } from '@telegram-apps/sdk-react';
 import { TelegramBot } from "@/servers/TelegramBot";
-import { Loading } from "@/components/Loading";
 import { selectUserInfo } from "@/slices/userInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { BackendServer } from "@/servers/BackendServer";
@@ -26,10 +25,10 @@ export const Home = () => {
     const [openModal, setOpenModal] = useState(false);
 
     let referralID = initData?.startParam ?? defaultReferral;
-    const isInDB = userInfo.id === initData?.user?.id.toString();
-    const isInGroup = userInfo.isInGroup;
-    // const isInGroup = true;
-    // const isInDB = true;
+    // const isInDB = userInfo.id === initData?.user?.id.toString();
+    // const isInGroup = userInfo.isInGroup;
+    const isInGroup = true;
+    const isInDB = true;
     const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
     useEffect(() => {
@@ -52,9 +51,9 @@ export const Home = () => {
         init();
     }, [client, initData, userInfo]);
 
-    return userInfo.status ? <div className='flex flex-col w-full justify-center text-base'>
+    return <div className='flex flex-col w-full justify-center text-base'>
         <NavLink to="/leaders">
-            <div className="flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5">
+            <div className="flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5 mx-4 rounded-lg opacity-90"  data-aos="zoom-in">
                 {local.home.banner}
             </div>
         </NavLink>
@@ -87,7 +86,7 @@ export const Home = () => {
                             {local.home.inviteMemo}
                         </div>
                     </NeonText>
-                    <div className="flex flex-col h-full items-center text-sm p-5 m-5 justify-center rounded-lg shadow-lg shadow-purple-500/50 bg-gray-950 back border-2 border-purple-950">
+                    <div className="flex flex-col h-full items-center text-sm p-5 m-5 justify-center rounded-lg bg-gray-950 back border-2 border-gray-800" data-aos="zoom-in">
                             <div className='flex justify-between w-full'>
                                 <div>
                                     {local.home.tier1}
@@ -114,7 +113,7 @@ export const Home = () => {
                 <div className='flex flex-col justify-center w-full'>
                     <div className='flex justify-between p-5 text-lg w-full'>
                         <NavLink to="/dashboard" className="w-1/2 mr-4">
-                            <button className="glow w-full flex justify-between items-center px-8">
+                            <button className="glow w-full flex justify-between items-center px-8" data-aos="flip-right">
                                 <div>
                                     {local.home.earn}
                                 </div>
@@ -123,7 +122,7 @@ export const Home = () => {
                                 </div>
                             </button>
                         </NavLink>
-                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8 " onClick={() => setOpenModal(true)} >
+                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8 " onClick={() => setOpenModal(true)}  data-aos="flip-left">
                             <div className="z-20">
                                 {local.home.invite}
                             </div>
@@ -149,7 +148,7 @@ export const Home = () => {
                             );
 
                             setTimeout(() => dispatch(setRefreshNum()), 5000);
-                        }}>
+                        }}  data-aos="flip-left">
                             <div>
                                 Step 1:
                             </div>
@@ -191,7 +190,7 @@ export const Home = () => {
                             }
 
                             // setTimeout(() => dispatch(setRefreshNum()), 5000);
-                        }}>
+                        }}  data-aos="flip-right">
                             <div>
                                 Step 2:
                             </div>
@@ -206,7 +205,5 @@ export const Home = () => {
                 </div>
         }
         <ShareLinkModal tgID={initData?.user?.id.toString() ?? ''} openModal={openModal} setOpenModal={setOpenModal} />
-    </div> : <div className='flex flex-col items-center justify-center h-96'>
-        <Loading />
     </div>
 };

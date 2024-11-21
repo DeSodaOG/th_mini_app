@@ -25,7 +25,7 @@ export const Dashboard = () => {
                 {local.dashboard.well} {userInfo.tgHandle}. {local.dashboard.start}
             </div>
         </NeonText>
-        <div className="flex flex-col h-full w-full items-center justify-center p-8 text-sm rounded-lg shadow-lg shadow-purple-500/50 bg-gray-950 border-2 border-purple-950">
+        <div className="flex flex-col h-full w-full items-center justify-center p-8 text-sm rounded-lg bg-gray-950 border-2 border-gray-800"  data-aos="zoom-in">
             <div className='flex justify-between w-full my-1'>
                 <div>
                     {local.dashboard.totalPoint}

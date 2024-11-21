@@ -17,6 +17,8 @@ import {
   Router,
   Routes,
 } from 'react-router-dom';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 // import { routes } from '@/navigation/routes.tsx';
 import { Page } from '@/components/Page';
@@ -32,6 +34,20 @@ import { BackendServer } from '@/servers/BackendServer';
 export const App: FC = () => {
   // const lp = useLaunchParams();
   // const miniApp = useMiniApp();
+  useEffect(() => {
+    const aos_init = () => {
+      AOS.init({
+        once: true,
+        duration: 500,
+        easing: 'ease-out-cubic',
+      });
+    }
+
+    window.addEventListener('load', () => {
+      aos_init();
+    });
+  }, []);
+
   const viewport = useViewport();
   // const themeParams = useThemeParams();
 

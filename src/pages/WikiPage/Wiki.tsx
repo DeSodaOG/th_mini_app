@@ -50,7 +50,7 @@ export const Wiki = () => {
         </div>
         
         {qaData.map((value, index) => 
-            <div key={index} className="my-5">
+            <div key={index} className="my-5"  data-aos="zoom-in">
                 <div className="flex justify-start items-center text-sm mx-5 my-2">
                     {value.question}
                 </div>

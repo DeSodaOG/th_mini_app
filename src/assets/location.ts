@@ -1,6 +1,6 @@
 export const en_locationText = {
     home: {
-        banner: "King-Of-Invite Contest, $6000 Prize Money!",
+        banner: "📢 King-Of-Invite Contest, $6000 Prize Money! 🎉",
         welcome_olduser: "Welcome to Hunters Union!",
         welcome_newuser: "Welcome to Hunters’ Union!",
         newJoin: "10,000 available",
@@ -87,7 +87,7 @@ export const en_locationText = {
 
 export const ru_locationText = {
     home: {
-        banner: "Конкурс «Король приглашений», призовой фонд $6000!",
+        banner: "📢 Конкурс «Король приглашений», призовой фонд $6000! 🎉",
         welcome_olduser: "Добро пожаловать в Союз Охотников!",
         welcome_newuser: "Добро пожаловать в Союз Охотников!",
         newJoin: "Присоединяйтесь, чтобы заработать 10 000",

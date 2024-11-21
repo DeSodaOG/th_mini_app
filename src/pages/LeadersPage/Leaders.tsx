@@ -23,7 +23,7 @@ export const Leaders = () => {
                 {local.leader.title}
             </div>
         </NeonText>
-        <div className="flex flex-col w-full justify-center">
+        <div className="flex flex-col w-full justify-center"  data-aos="zoom-in">
             <div className="flex justify-start items-center text-sm mx-5">
                 {local.leader.detail}
             </div>
