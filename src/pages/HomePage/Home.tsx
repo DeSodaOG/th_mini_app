@@ -53,7 +53,7 @@ export const Home = () => {
 
     return <div className='flex flex-col w-full justify-center text-base'>
         <NavLink to="/leaders">
-            <div className="flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5 mx-4 rounded-lg opacity-90"  data-aos="zoom-in">
+            <div className="text-sm flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5 mx-4 rounded-lg opacity-90" data-aos="zoom-in">
                 {local.home.banner}
             </div>
         </NavLink>
@@ -78,35 +78,6 @@ export const Home = () => {
                 (isInGroup && isInDB) ? new Intl.NumberFormat().format(userInfo.score) ?? "10,000" : local.home.newJoin
             }
         </CoolText>
-        {
-            (isInGroup && isInDB) ?
-                <div className="flex flex-col justify-center w-full">
-                    <NeonText>
-                        <div className="flex justify-center items-center my-2 mx-8 text-center text-sm">
-                            {local.home.inviteMemo}
-                        </div>
-                    </NeonText>
-                    <div className="flex flex-col h-full items-center text-sm p-5 m-5 justify-center rounded-lg bg-gray-950 back border-2 border-gray-800" data-aos="zoom-in">
-                            <div className='flex justify-between w-full'>
-                                <div>
-                                    {local.home.tier1}
-                                </div>
-                                <div>
-                                    {userInfo.affiliateAmount} ( * 20000 $Hunter)
-                                </div>
-                            </div>
-                            <div className='flex justify-between w-full'>
-                                <NeonText color="turquoise">
-                                    {local.home.tier2}
-                                </NeonText>
-                                <NeonText color="turquoise">
-                                    {userInfo.subAffiliateAmount} ( * 40000 $Hunter)
-                                </NeonText>
-                            </div>
-                        </div>
-                </div> :
-                <div />
-        }
 
         {
             (isInGroup && isInDB) ?
@@ -122,7 +93,7 @@ export const Home = () => {
                                 </div>
                             </button>
                         </NavLink>
-                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8 " onClick={() => setOpenModal(true)}  data-aos="flip-left">
+                        <button className="glow-on-hover w-1/2 flex justify-between items-center px-8 " onClick={() => setOpenModal(true)} data-aos="flip-left">
                             <div className="z-20">
                                 {local.home.invite}
                             </div>
@@ -133,11 +104,7 @@ export const Home = () => {
                     </div>
                 </div>
                 : <div className='flex flex-col justify-center w-full'>
-                    <NeonText>
-                        <div className="flex justify-center items-center my-1 h-8 text-center text-base">
-                            {local.home.stepInfo}
-                        </div>
-                    </NeonText>
+
                     <div className='flex justify-between p-5 text-lg w-full h-16 mb-10'>
                         <button className={!isInGroup ? "glow-on-hover w-full flex justify-between items-center px-8" :
                             "glow w-full flex justify-between items-center px-8 opacity-50"
@@ -148,7 +115,7 @@ export const Home = () => {
                             );
 
                             setTimeout(() => dispatch(setRefreshNum()), 5000);
-                        }}  data-aos="flip-left">
+                        }} data-aos="flip-left">
                             <div>
                                 Step 1:
                             </div>
@@ -190,7 +157,7 @@ export const Home = () => {
                             }
 
                             // setTimeout(() => dispatch(setRefreshNum()), 5000);
-                        }}  data-aos="flip-right">
+                        }} data-aos="flip-right">
                             <div>
                                 Step 2:
                             </div>
@@ -202,8 +169,44 @@ export const Home = () => {
                             </div>
                         </button>
                     </div>
+                    <NeonText>
+                        <div className="flex justify-center items-center my-1 h-8 text-center text-base">
+                            {local.home.stepInfo}
+                        </div>
+                    </NeonText>
                 </div>
         }
+        {
+            (isInGroup && isInDB) ?
+                <div className="flex flex-col justify-center w-full">
+
+                    <div className="flex flex-col h-full items-center text-sm p-5 m-5 justify-center rounded-lg bg-gray-950 back border-2 border-gray-800" data-aos="zoom-in">
+                        <div className='flex justify-between w-full'>
+                            <div>
+                                {local.home.tier1}
+                            </div>
+                            <div>
+                                {userInfo.affiliateAmount} ( * 20000 $Hunter)
+                            </div>
+                        </div>
+                        <div className='flex justify-between w-full'>
+                            <NeonText color="turquoise">
+                                {local.home.tier2}
+                            </NeonText>
+                            <NeonText color="turquoise">
+                                {userInfo.subAffiliateAmount} ( * 40000 $Hunter)
+                            </NeonText>
+                        </div>
+                    </div>
+                    <NeonText>
+                        <div className="flex justify-center items-center my-2 mx-8 text-center text-sm">
+                            {local.home.inviteMemo}
+                        </div>
+                    </NeonText>
+                </div> :
+                <div />
+        }
+
         <ShareLinkModal tgID={initData?.user?.id.toString() ?? ''} openModal={openModal} setOpenModal={setOpenModal} />
     </div>
 };
