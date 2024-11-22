@@ -43,9 +43,7 @@ export const App: FC = () => {
       });
     }
 
-    window.addEventListener('load', () => {
-      aos_init();
-    });
+    aos_init();
   }, []);
 
   const viewport = useViewport();
