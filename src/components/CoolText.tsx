@@ -8,7 +8,7 @@ interface CoolTextProps {
 
 export const CoolText: FC<CoolTextProps> = ({children}) => {
 
-    return <div style={{ height: 100 }}>
+    return <div >
         <h1 className="fancy-wipe">
             <span className="text">
                 {children}

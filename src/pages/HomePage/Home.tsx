@@ -66,7 +66,7 @@ export const Home = () => {
                 </div>
             }
         </NeonText> */}
-        <div className="flex flex-col items-center justify-center mt-8 mb-3">
+        <div className="flex flex-col items-center justify-center mt-8 ">
             <div className="containerCloud h-48">
                 <div className="cloud">
                     <h2>$Hunter</h2>
@@ -82,7 +82,7 @@ export const Home = () => {
         {
             (isInGroup && isInDB) ?
                 <div className='flex flex-col justify-center w-full'>
-                    <div className='flex justify-between p-5 text-lg w-full'>
+                    <div className='flex justify-between px-5 text-lg w-full'>
                         <NavLink to="/dashboard" className="w-1/2 mr-4">
                             <button className="glow w-full flex justify-between items-center px-8" data-aos="flip-right">
                                 <div>
