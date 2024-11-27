@@ -1,5 +1,5 @@
 // import { useEffect } from 'react';
-import { AppRoot } from '@telegram-apps/telegram-ui';
+// import { AppRoot } from '@telegram-apps/telegram-ui';
 
 import { Outlet } from "react-router-dom";
 import { TopNav } from './TopNav';
@@ -8,7 +8,7 @@ import {
     // bindMiniAppCSSVars,
     // bindThemeParamsCSSVars,
     // bindViewportCSSVars,
-    useLaunchParams,
+    // useLaunchParams,
     // useMiniApp,
     // useThemeParams,
     // useViewport,
@@ -19,7 +19,7 @@ import { selectRankingInfo } from '../slices/rankingInfoSlice';
 import { Loading } from './Loading';
 
 export const Page = () => {
-    const lp = useLaunchParams();
+    // const lp = useLaunchParams();
     // const miniApp = useMiniApp();
     // const themeParams = useThemeParams();
     // const viewport = useViewport();
@@ -39,9 +39,9 @@ export const Page = () => {
     // }, [viewport]);
 
     // console.log(miniApp.isDark)
-    return <AppRoot
-        appearance={'dark'}
-        platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+    return <div
+        // appearance={'light'}
+        // platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
         className='w-screen'
     >
         <TopNav />
@@ -53,5 +53,5 @@ export const Page = () => {
         }
         
         <Footer />
-    </AppRoot>
+    </div>
 };
