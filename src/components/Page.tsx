@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 
 import { Outlet } from "react-router-dom";
@@ -7,11 +7,11 @@ import { Footer } from './Footer';
 import {
     // bindMiniAppCSSVars,
     // bindThemeParamsCSSVars,
-    bindViewportCSSVars,
+    // bindViewportCSSVars,
     useLaunchParams,
     // useMiniApp,
     // useThemeParams,
-    useViewport,
+    // useViewport,
 } from '@telegram-apps/sdk-react';
 import {useSelector} from "react-redux";
 import { selectUserInfo } from '../slices/userInfoSlice';
@@ -22,7 +22,7 @@ export const Page = () => {
     const lp = useLaunchParams();
     // const miniApp = useMiniApp();
     // const themeParams = useThemeParams();
-    const viewport = useViewport();
+    // const viewport = useViewport();
     const userInfo = useSelector(selectUserInfo);
     const rankingInfo = useSelector(selectRankingInfo);
 
@@ -34,9 +34,9 @@ export const Page = () => {
     //     return bindThemeParamsCSSVars(themeParams);
     // }, [themeParams]);
 
-    useEffect(() => {
-        return viewport && bindViewportCSSVars(viewport);
-    }, [viewport]);
+    // useEffect(() => {
+    //     return viewport && bindViewportCSSVars(viewport);
+    // }, [viewport]);
 
     // console.log(miniApp.isDark)
     return <AppRoot
