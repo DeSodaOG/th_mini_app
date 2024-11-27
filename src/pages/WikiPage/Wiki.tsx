@@ -43,7 +43,7 @@ export const Wiki = () => {
         },
     ]
 
-    return <div className='flex flex-col w-full justify-center text-lg text-center'>
+    return <div className='flex flex-col w-full justify-center text-lg text-white'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <div className="flex justify-center items-center m-5 text-xl text-center">
             {local.wiki.title}

@@ -52,7 +52,7 @@ export const Home = () => {
         init();
     }, [client, initData, userInfo]);
 
-    return <div className='flex flex-col w-full justify-center text-base text-center text-center'>
+    return <div className='flex flex-col w-full justify-center text-base text-center text-white'>
         <NavLink to="/leaders">
             <div className="text-sm flex justify-center items-center h-16 bg-gradient-to-r from-purple-500 to-pink-500 text-center px-5 mx-4 rounded-lg opacity-90" data-aos="zoom-in">
                 {local.home.banner}

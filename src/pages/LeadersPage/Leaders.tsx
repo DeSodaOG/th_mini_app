@@ -16,7 +16,7 @@ export const Leaders = () => {
     const [openModal, setOpenModal] = useState(false);
     const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
-    return rankingInfo.status ? <div className='flex flex-col w-full justify-center items-center text-lg text-center'>
+    return rankingInfo.status ? <div className='flex flex-col w-full justify-center items-center text-lg text-white'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NeonText>
             <div className="flex justify-center items-center my-5 text-xl text-center px-5">
