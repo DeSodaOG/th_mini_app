@@ -43,7 +43,7 @@ export const Wiki = () => {
         },
     ]
 
-    return <div className='flex flex-col w-full justify-center text-lg'>
+    return <div className='flex flex-col w-full justify-center text-lg text-center'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <div className="flex justify-center items-center m-5 text-xl text-center">
             {local.wiki.title}
@@ -51,10 +51,10 @@ export const Wiki = () => {
         
         {qaData.map((value, index) => 
             <div key={index} className="my-5"  data-aos="zoom-in">
-                <div className="flex justify-start items-center text-sm mx-5 my-2">
+                <div className="flex justify-start items-center text-sm mx-5 my-2 text-left">
                     {value.question}
                 </div>
-                <div className="flex justify-start items-center text-sm mx-5 my-2 text-yellow-300">
+                <div className="flex justify-start items-center text-sm mx-5 my-2 text-yellow-300 text-left">
                     {value.answer}
                 </div>
             </div>

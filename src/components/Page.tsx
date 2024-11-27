@@ -1,5 +1,5 @@
-// import { useEffect } from 'react';
-// import { AppRoot } from '@telegram-apps/telegram-ui';
+import { useEffect } from 'react';
+import { AppRoot } from '@telegram-apps/telegram-ui';
 
 import { Outlet } from "react-router-dom";
 import { TopNav } from './TopNav';
@@ -7,11 +7,11 @@ import { Footer } from './Footer';
 import {
     // bindMiniAppCSSVars,
     // bindThemeParamsCSSVars,
-    // bindViewportCSSVars,
-    // useLaunchParams,
+    bindViewportCSSVars,
+    useLaunchParams,
     // useMiniApp,
     // useThemeParams,
-    // useViewport,
+    useViewport,
 } from '@telegram-apps/sdk-react';
 import {useSelector} from "react-redux";
 import { selectUserInfo } from '../slices/userInfoSlice';
@@ -19,10 +19,10 @@ import { selectRankingInfo } from '../slices/rankingInfoSlice';
 import { Loading } from './Loading';
 
 export const Page = () => {
-    // const lp = useLaunchParams();
+    const lp = useLaunchParams();
     // const miniApp = useMiniApp();
     // const themeParams = useThemeParams();
-    // const viewport = useViewport();
+    const viewport = useViewport();
     const userInfo = useSelector(selectUserInfo);
     const rankingInfo = useSelector(selectRankingInfo);
 
@@ -34,14 +34,14 @@ export const Page = () => {
     //     return bindThemeParamsCSSVars(themeParams);
     // }, [themeParams]);
 
-    // useEffect(() => {
-    //     return viewport && bindViewportCSSVars(viewport);
-    // }, [viewport]);
+    useEffect(() => {
+        return viewport && bindViewportCSSVars(viewport);
+    }, [viewport]);
 
     // console.log(miniApp.isDark)
-    return <div
-        // appearance={'light'}
-        // platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+    return <AppRoot
+        appearance={'dark'}
+        platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
         className='w-screen'
     >
         <TopNav />
@@ -51,7 +51,6 @@ export const Page = () => {
                 <Loading />
             </div>
         }
-        
         <Footer />
-    </div>
+    </AppRoot>
 };

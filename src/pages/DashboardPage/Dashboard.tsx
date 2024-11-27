@@ -18,7 +18,7 @@ export const Dashboard = () => {
     const [openModal, setOpenModal] = useState(false);
     const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
-    return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg px-5'>
+    return userInfo.status ? <div className='flex flex-col w-full justify-center text-lg px-5  text-center'>
         {/* <div className="flex justify-center h-24 bg-[url('./assets/images/logo_with_text.png')] bg-no-repeat bg-cover"> */}
         <NeonText>
             <div className="flex justify-center text-center my-2 p-5 w-full">
