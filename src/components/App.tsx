@@ -2,12 +2,12 @@ import { useIntegration } from '@telegram-apps/react-router-integration';
 import {
   // bindMiniAppCSSVars,
   // bindThemeParamsCSSVars,
-  bindViewportCSSVars,
+  // bindViewportCSSVars,
   initNavigator, 
   // useLaunchParams,
   // useMiniApp,
   // useThemeParams,
-  useViewport,
+  // useViewport,
 } from '@telegram-apps/sdk-react';
 // import { AppRoot } from '@telegram-apps/telegram-ui';
 import { type FC, useEffect, useMemo } from 'react';
@@ -56,7 +56,7 @@ export const App: FC = () => {
     console.log('TonAdInit', result)
   }, []);
 
-  const viewport = useViewport();
+  // const viewport = useViewport();
   // const themeParams = useThemeParams();
 
   // useEffect(() => {
@@ -67,9 +67,9 @@ export const App: FC = () => {
   //   return bindThemeParamsCSSVars(themeParams);
   // }, [themeParams]);
 
-  useEffect(() => {
-    return viewport && bindViewportCSSVars(viewport);
-  }, [viewport]);
+  // useEffect(() => {
+  //   return viewport && bindViewportCSSVars(viewport);
+  // }, [viewport]);
 
   useFetchUserInfo()
   useFetchRankingInfo()
