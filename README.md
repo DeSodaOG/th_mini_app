@@ -15,6 +15,7 @@ VALUES ('1', '-1', '-1', '2024-11-11 14:00:00', '2024-11-11 14:00:00', 1);
 DELETE FROM tele_hunter
 WHERE id = '1645327630';
 
+
 SELECT
    *
 FROM

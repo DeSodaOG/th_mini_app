@@ -18,6 +18,7 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
   const local = initData?.user?.languageCode === 'ru' || initData?.user?.languageCode === 'be' || initData?.user?.languageCode === 'uk' ? ru_locationText : en_locationText;
 
   const shareLink = `https://t.me/share/url?url=https%3A%2F%2Ft.me%2FTeleHunterBot%2Fthapp%3Fstartapp%3D${tgID}&text=${local.share.shareText}`;
+  const copyText = `${local.share.shareText}` + " https://t.me/TeleHunterBot/thapp?startapp=" + tgID;
   //bg-gradient-to-r from-purple-950 to-pink-950
   return <div>
 
@@ -45,7 +46,7 @@ export const ShareLinkModal: FC<Val> = ({ tgID, openModal, setOpenModal }): Reac
           </div>
           <div className='flex flex-col justify-center text-base w-full'>
             <button className="glow-on-hover w-full flex justify-between items-center px-8 my-5 h-12" onClick={() => {
-              navigator.clipboard.writeText(shareLink)
+              navigator.clipboard.writeText(copyText)
               alert(local.share.success)
             }}>
               <div>

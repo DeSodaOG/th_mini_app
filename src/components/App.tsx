@@ -30,6 +30,8 @@ import useFetchUserInfo from '@/hooks/useFetchUserInfo';
 import useFetchRankingInfo from '@/hooks/useRankingInfo';
 import { useInitData } from '@telegram-apps/sdk-react';
 import { BackendServer } from '@/servers/BackendServer';
+import telegramAnalytics from '@telegram-apps/analytics';
+import { TonAdInit } from 'ton-ai-sdk'
 
 export const App: FC = () => {
   // const lp = useLaunchParams();
@@ -44,6 +46,14 @@ export const App: FC = () => {
     }
 
     aos_init();
+
+    telegramAnalytics.init({
+      token: process.env.VITE_TGANALYTICS_TOKEN ?? '',
+      appName: 'TeleHunter',
+    });
+
+    const result = TonAdInit({ appId: process.env.VITE_TONAI_TOKEN ?? '', debug: false })
+    console.log('TonAdInit', result)
   }, []);
 
   const viewport = useViewport();

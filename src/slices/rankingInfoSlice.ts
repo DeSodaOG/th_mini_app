@@ -64,7 +64,7 @@ export const fetchRankingInfo = createAsyncThunk('user/fetchRankingInfo', async 
         userRanking = lastRanking
       }
     })
-
+    // console.log(userInfo)
     return {
       ranking: userRanking,
       userInfo

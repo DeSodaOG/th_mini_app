@@ -15,6 +15,7 @@ import { setRefreshNum } from "@/slices/globalInfoSlice";
 import { TbHandClick } from "react-icons/tb";
 import './home.css';
 import { en_locationText, ru_locationText } from "@/assets/location";
+import { SendTonAdConversion } from 'ton-ai-sdk'
 
 export const Home = () => {
     const dispatch: any = useDispatch();
@@ -148,6 +149,8 @@ export const Home = () => {
                                         referralID
                                     );
 
+                                    SendTonAdConversion();
+                                    
                                     if (!result) {
                                         // alert("Join The Affiliate System Failed, please refresh the mini app or contact with Official.")
                                         dispatch(setRefreshNum());
