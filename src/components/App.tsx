@@ -48,11 +48,11 @@ export const App: FC = () => {
     aos_init();
 
     telegramAnalytics.init({
-      token: process.env.VITE_TGANALYTICS_TOKEN ?? '',
+      token: import.meta.env.VITE_TGANALYTICS_TOKEN ?? '',
       appName: 'TeleHunter',
     });
 
-    const result = TonAdInit({ appId: process.env.VITE_TONAI_TOKEN ?? '', debug: false })
+    const result = TonAdInit({ appId: import.meta.env.VITE_TONAI_TOKEN ?? '', debug: false })
     console.log('TonAdInit', result)
   }, []);
 
