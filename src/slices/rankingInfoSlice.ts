@@ -48,13 +48,15 @@ export const fetchRankingInfo = createAsyncThunk('user/fetchRankingInfo', async 
     const backendServer = new BackendServer();
     const userInfo = await backendServer.getAllUsers();
 
+    let index = 0
     let lastRanking = 0;
     let lastScore = 0;
     let userRanking = -1;
 
     userInfo.map((x: any) => {
+      index += 1;
       if (lastScore !== x.score) {
-        lastRanking += 1;
+        lastRanking = index;
       }
 
       lastScore = x.score

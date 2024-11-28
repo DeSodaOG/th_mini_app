@@ -30,16 +30,16 @@ export const Leaders = () => {
             <div className="flex justify-start items-center text-sm mx-5 my-3">
                 {local.leader.rule}
             </div>
-            <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            <div className="flex justify-start items-center text-sm text-green-500 my-2 mx-5">
                 {local.leader.reward1}
             </div>
-            <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            <div className="flex justify-start items-center text-sm text-yellow-500 my-2 mx-5">
                 {local.leader.reward2}
             </div>
-            <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5">
+            <div className="flex justify-start items-center text-sm text-purple-500 my-2 mx-5">
                 {local.leader.reward3}
             </div>
-            <div className="flex justify-start items-center text-sm text-yellow-300 my-2 mx-5 my-3">
+            <div className="flex justify-start items-center text-sm text-blue-500 my-2 mx-5 my-3">
                 {local.leader.reward4}
             </div>
             <a className="flex justify-start items-center text-sm mx-5" href="https://medium.com/@telehunter/tele-hunter-carnival-king-of-invite-contest-6000-u-prize-money-to-grab-5fddea67b3ae">
@@ -94,7 +94,7 @@ export const Leaders = () => {
                             <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                                 {
                                     rankingInfo.rankingInfo.map((x: any) => {
-                                            const color = x.ranking === 1 ? "green" : x.ranking > 1 && x.ranking < 3 ? "yellow" : "blue";
+                                            const color = x.ranking === 1 ? "green" : ((x.ranking > 1 && x.ranking <= 3) ? "yellow" : ((x.ranking > 3 && x.ranking <= 10) ? "purple" : (((x.ranking > 10 && x.ranking <= 80)) ? 'blue' : 'white')));
 
                                             return <tr key={x.id}>
                                                 <td className={`px-2 py-4 whitespace-nowrap text-center text-sm font-medium text-${color}-500 dark:text-${color}-500`}>{
